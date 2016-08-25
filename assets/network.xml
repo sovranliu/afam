@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<network cache="afam/image/">
+	<!-- 环境 -->
+	<environment name="product">
+		<host name="command" domain="121.40.90.141" />
+		<host name="resource" domain="121.40.90.141" />
+	</environment>
+	<environment name="qa">
+		<host name="command" domain="121.40.90.141" />
+		<host name="resource" domain="121.40.90.141" />
+	</environment>
+	<environment name="develop">
+		<host name="command" domain="121.40.90.141" />
+		<host name="resource" domain="121.40.90.141" />
+	</environment>
+	<!-- 网址 -->
+	<!-- 首页入口 -->
+	<protocol name="domain">
+		<url host="resource">
+<![CDATA[
+http://121.40.90.141
+]]>
+		</url>
+		<mock></mock>
+	</protocol>
+	<protocol name="protocol">
+		<url host="resource">
+<![CDATA[
+afam/help.html
+]]>
+		</url>
+		<mock></mock>
+	</protocol>
+	
+	<!-- 协议 -->
+	<!-- 获取欢迎信息 -->
+	<protocol name="login">
+		<path>
+<![CDATA[
+afam/rest/login?userName=[1]&password=[2]&token=[3]
+]]>
+		</path>
+		<mock>
+<![CDATA[
+{
+    "code": 0,
+    "data": {
+        "userId": 66447,
+        "userName": "liujunit",
+        "name": "柳君",
+        "phone": "15021819287",
+        "token": "205F2A74"
+    }
+}
+]]>
+		</mock>
+	</protocol>
+	
+	
+	<!-- Marge 依赖协议 -->
+	<!-- 检测资源版本 -->
+	<protocol name="marge.check">
+		<path>
+<![CDATA[
+marge/check?name=[1]
+]]>
+		</path>
+		<mock>
+<![CDATA[
+{
+	"code":0,
+	"data":{
+		"version":2,
+		"strategy":"force"
+	}
+}
+]]>
+		</mock>
+	</protocol>
+	<!-- 获取装配信息 -->
+	<protocol name="marge.manifest">
+		<path>
+<![CDATA[
+marge/manifest?res=[1]&id=[2]
+]]>
+		</path>
+		<mock>
+<![CDATA[
+{
+    "code": 0,
+    "data": {
+        "uri": "http://121.40.90.141",
+        "files": [
+            {
+                "afam": [
+                    "index.html:A34A64543324F29",
+                    "welcome.html:B12A41234234293",
+                    {
+                        "css": [
+                            "style.css:C34A64543324F29"
+                        ],
+                        "js": [
+                            "base.js:F12A41234234AD3"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+]]>
+		</mock>
+	</protocol>
+</network>

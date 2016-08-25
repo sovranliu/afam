@@ -1,0 +1,89 @@
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+			android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" >
+            <fragment android:name="com.xyzq.afam.view.form.MainFragmentActivity"
+                android:id="@+id/main_fragment_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tag="afam/home.html" />
+            <fragment android:name="com.xyzq.afam.view.form.MainFragmentActivity"
+                android:id="@+id/main_fragment_client"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tag="afam/client.html" />
+            <fragment android:name="com.xyzq.afam.view.form.MainFragmentActivity"
+                android:id="@+id/main_fragment_query"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tag="afam/query.html" />
+            <fragment android:name="com.xyzq.afam.view.form.MainFragmentActivity"
+                android:id="@+id/main_fragment_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tag="afam/user.html" />
+		</FrameLayout>
+		<View 
+		    android:layout_width="fill_parent"
+		    android:layout_height="1px"
+		    android:background="#ffb4b4b4" />
+		<TabWidget
+		    android:id="@android:id/tabs"
+		    android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_weight="0.0"
+    		android:visibility="gone" />
+		<RadioGroup
+    		android:id="@+id/main_tab"
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:gravity="bottom"
+    		android:paddingTop="2dp"
+    		android:layout_gravity="bottom"
+    		android:background="@color/sub">
+    		<RadioButton 
+    			android:id="@+id/main_tab_home"
+    			android:text="首页"
+				android:textColor="@color/grey_text"
+    			android:layout_marginTop="0dip"
+    			android:background="@color/sub"
+    			android:drawableTop="@drawable/selector_main_home"
+    			style="@style/main_tab" />
+    		<RadioButton
+    			android:id="@+id/main_tab_client"
+				android:text="客户"
+				android:textColor="@color/grey_text"
+    			android:layout_marginTop="0dip"
+    			android:background="@color/sub"
+    			android:drawableTop="@drawable/selector_main_client"
+    			style="@style/main_tab" />
+    		<RadioButton
+    			android:id="@+id/main_tab_query"
+				android:text="查询"
+				android:textColor="@color/grey_text"
+    			android:layout_marginTop="0dip"
+    			android:background="@color/sub"
+    			android:drawableTop="@drawable/selector_main_query"
+    			style="@style/main_tab" />
+    		<RadioButton
+    			android:id="@+id/main_tab_user"
+				android:text="我的"
+				android:textColor="@color/grey_text"
+    			android:layout_marginTop="0dip"
+    			android:background="@color/sub"
+    			android:drawableTop="@drawable/selector_main_user"
+    			style="@style/main_tab" />
+    	</RadioGroup>
+    </LinearLayout>
+</TabHost>
