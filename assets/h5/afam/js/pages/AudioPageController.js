@@ -9,15 +9,7 @@ AFA.pages.AudioPageController = function (AFA, $$) {
   
   // Init method
   (function () {
-    $$('.circle_lg').on('click',function(){
-      var classname = $$(this).attr('class');
-      var isChange = classname.indexOf('active') == -1?false:true;
-      if(!isChange){
-        $$(this).addClass('active')
-      }else{
-        $$(this).removeClass('active')
-      }
-    })
+    
   
   }());
 
