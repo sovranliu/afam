@@ -52,6 +52,10 @@ public class MainFragmentActivity extends FragmentEx {
 		browser.inject("user", User.class);
 		browser.inject("window", new Window(MainFragmentActivity.this.getActivity()));
 		browser.inject("recorder", Recorder.class);
-		browser.loadUrl(Client.resource("afam").fetch(Networking.fetchURL("domain") + "/" + this.getTag()));
+		String url = Networking.fetchURL("domain") + "/" + this.getTag();
+		if(null != Client.resource("afam").fetch(url)) {
+			url = Client.resource("afam").fetch(url);
+		}
+		browser.loadUrl(url);
 	}
 }
