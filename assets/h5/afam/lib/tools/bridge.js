@@ -34,7 +34,7 @@ function bridge(name) {
 
 function bridge_callback(p, r) {
 	var f = g_callback['' + p];
-	f(r);
+	f(java2js(r));
 	delete g_callback['' + p];
 }
 
@@ -69,10 +69,10 @@ function java2js(s) {
 	if(null == s || 'null' == s) {
 		return null;
 	}
-	else if(s.startsWith('\'') && s.endsWith('\'')) {
+	else if(0 == s.indexOf('\'') && s.length - 1 == s.lastIndexOf('\'')) {
 		return s.substring(1, s.length - 1);
 	}
-	else if((s.startsWith('{') && s.endsWith('}')) || (s.startsWith('[') && s.endsWith(']'))){
+	else if((0 == s.indexOf('{') && s.length - 1 == s.lastIndexOf('}')) || (0 == s.indexOf('[') && s.length - 1 == s.lastIndexOf(']'))){
 		return eval('(' + s + ')');
 	}
 	else {

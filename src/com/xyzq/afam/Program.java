@@ -3,6 +3,7 @@ package com.xyzq.afam;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.config.Configuration;
 import com.xyzq.simpson.carl.storage.Storage;
+import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.sherry.im.Module;
 
 import android.app.Application;
@@ -28,6 +29,10 @@ public class Program extends Application {
 	 */
 	public final static String STORAGE_ROOT_IMAGE = STORAGE_ROOT + "image/";
 	/**
+	 * 默认录音根目录
+	 */
+	public final static String STORAGE_ROOT_RECORD = STORAGE_ROOT + "record/";
+	/**
 	 * 默认H5根目录
 	 */
 	public final static String STORAGE_ROOT_H5 = STORAGE_ROOT + "h5/";
@@ -35,8 +40,12 @@ public class Program extends Application {
 	 * 程序引用
 	 */
 	public static Application application = null;
+	/**
+	 * 当前的浏览器
+	 */
+	public static BridgeWebView currentBrowser = null;
 
-
+	
 	/**
 	 * 构建回调
 	 */

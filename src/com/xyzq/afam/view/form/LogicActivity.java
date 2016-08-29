@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.xyzq.afam.Program;
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
@@ -31,6 +32,15 @@ public class LogicActivity extends ActivityEx {
 		super.onCreate(savedInstanceState);
 		//
 		prepare();
+	}
+	
+	/**
+	 * 页面呈现
+	 */
+	@Override
+	public void onResume() {
+		super.onResume();
+		Program.currentBrowser = webBrowser;
 	}
 
 	/**

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.xyzq.afam.Program;
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.Me;
 import com.xyzq.afam.business.inject.Window;
@@ -46,6 +47,15 @@ public class LoadActivity extends ActivityEx {
 		prepare();
 	}
 
+	/**
+	 * 页面呈现
+	 */
+	@Override
+	public void onResume() {
+		super.onResume();
+		Program.currentBrowser = webIntroduce;
+	}
+	
 	/**
 	 * 准备
 	 */

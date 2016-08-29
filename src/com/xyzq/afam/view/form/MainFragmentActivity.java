@@ -3,11 +3,16 @@ package com.xyzq.afam.view.form;
 import android.os.Bundle;
 import android.view.View;
 
+import com.xyzq.afam.Program;
 import com.xyzq.afam.R;
+import com.xyzq.afam.business.inject.Recorder;
+import com.xyzq.afam.business.inject.User;
+import com.xyzq.afam.business.inject.Window;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.FragmentEx;
+import com.xyzq.simpson.marge.Client;
 
 /**
  * 引导界面
@@ -31,10 +36,22 @@ public class MainFragmentActivity extends FragmentEx {
 	}
 
 	/**
+	 * 页面呈现
+	 */
+	@Override
+	public void onResume() {
+		super.onResume();
+		Program.currentBrowser = browser;
+	}
+
+	/**
 	 * 准备
 	 */
 	private void prepare() {
 		browser.prepare();
-		browser.loadUrl(Networking.fetchURL("domain") + "/" + this.getTag());
+		browser.inject("user", User.class);
+		browser.inject("window", new Window(MainFragmentActivity.this.getActivity()));
+		browser.inject("recorder", Recorder.class);
+		browser.loadUrl(Client.resource("afam").fetch(Networking.fetchURL("domain") + "/" + this.getTag()));
 	}
 }
