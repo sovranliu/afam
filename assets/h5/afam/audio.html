@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AFA</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+  
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only"> <i class="icon iconfont">&#xe618;</i></a>
+            </div>
+            <!-- We have home navbar without left link-->
+            <div class="center">AFA</div>
+            <div class="right">
+              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only"> <i class="icon iconfont">&#xe620;</i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="audio" class="page navbar-fixed">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+              <div class="content-block tab-nav">
+                <div class="buttons-row">
+                  <a href="#tab1" class="tab-link active button"><i class="icon iconfont">&#xe627;</i> 录音</a>
+                  <a href="#tab2" class="tab-link button"><i class="icon iconfont">&#xe62c;</i> 历史</a>
+                </div>
+              </div>
+              <div class="tabs">
+                <div id="tab1" class="tab active">
+                  <div class="content-block">
+                    <div class="circle_lg">
+                      <div class="circle_md">
+                        <div class="circle_sm">
+                          <i class="icon iconfont f110">&#xe618;</i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab2" class="tab">
+                  <div class="content-block tab-list">
+                    <div class="list-block media-list">
+                      <ul>
+                        <li class="swipeout">
+                          <div class="item-content swipeout-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">2016-08-22 17:14:55</div>
+                              </div>
+                              <div class="item-title-row">
+                                <div class="audio-wrap">
+                                  <audio src=""></audio>
+                                  <span>05'22''</span>
+                                  <i class="icon iconfont">&#xe62a;</i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="swipeout-actions-right">
+                              <a class="swipeout-delete">删除</a>
+                            </div>
+                        </li>
+                        <li class="swipeout">
+                          <div class="item-content swipeout-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">2016-08-22 17:14:55</div>
+                              </div>
+                              <div class="item-title-row">
+                                <div class="audio-wrap">
+                                  <audio src=""></audio>
+                                  <span>05'22''</span>
+                                  <i class="icon iconfont">&#xe62a;</i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="swipeout-actions-right">
+                              <a class="swipeout-delete">删除</a>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+              </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+          <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/init.js"></script>
+    
+    <script type="text/javascript" src="js/pages/AudioPageController.js"></script>
+  </body>
+</html>
