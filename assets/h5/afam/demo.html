@@ -1,0 +1,20 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="lib/tools/bridge.js"></script>
+<script type="text/javascript">
+var f = '';
+</script>
+</head>
+<body>
+<p>这里是首页页面</p>
+<button onclick="bridge('recorder').call('start');">开始录音</button><br /><br />
+<button onclick="f = bridge('recorder').call('end');">停止录音</button><br /><br />
+<button onclick="bridge('recorder').call('play', f);">开始播放</button><br /><br />
+<button onclick="bridge('recorder').call('stop')">停止播放</button><br /><br />
+<button onclick="bridge('recorder').call('upload', f);">上传录音</button><br /><br />
+<button onclick="bridge('user').call('logout');">退出登录</button><br /><br />
+<button onclick="bridge('window').asyc('pop', ['条目一', '条目二', '', '取消'], function(data) {alert(data);});">菜单</button><br /><br />
+<button onclick="bridge('window').call('tip', '弹出的提示')">Tips</button><br /><br />
+</body>
+<html>
