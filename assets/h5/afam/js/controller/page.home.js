@@ -7,6 +7,7 @@ $Controller.bind = function() {
 	swipe('.yz-wrap','.yz-pagination');
 	// 加载更多
 	loadMore();
+	loadBanner();
 };
 
 function swipe(wrap,pagination) {
@@ -16,7 +17,18 @@ function swipe(wrap,pagination) {
 		'observer':true,
 		'observeParents':true
 	};
-	var mySwiper = $Controller.f7.swiper(wrap, options);   
+	var mySwiper = $Controller.f7.swiper(wrap, options);
+}
+
+function loadBanner() {
+	$$.getJSON(S_DOMAIN + '/afam/rest/banner', {}, function(resp) {
+		if(resp.code < 0) {
+			bridge('window').call('tip', resp.msg || '服务器错误');
+			return;
+		}
+		var html = Template7.templates.template_banner(resp.data);
+		$$('.adver-wrap .swiper-wrapper').html(html);
+	});
 }
 
 function loadMore() {

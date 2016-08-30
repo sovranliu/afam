@@ -1,5 +1,7 @@
 // page controller base module
 
+var S_DOMAIN = 'http://121.40.90.141';
+
 var $Controller = {"views":{}};
 var $$ = null;
 
