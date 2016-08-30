@@ -13,28 +13,62 @@ AFA.pages.AudioPageController = function (AFA, $$) {
         this.bindActions();
       },
       bindActions:function() {
-        $$('.circle_lg').on('click',this.recordCircle);
+        var _this = this;
+        $$('.circle_lg').on('click',function(){
+          _this.recordCircle(this)
+        });
+        $$('.open-vertical-modal').on('click', function () {
+          _this.openDialog(this);
+        }); 
+        $$('.tab-history').on('click',this.closeTool)
       },
       recordCircle:function(e) {
-          var classname = $$(this).attr('class'),
+          var classname = $$(e).attr('class'),
               isChange = classname.indexOf('active') == -1?false:true;
           var msg = {
             'start':'点击开始录音',
             'end':'再次点击结束录音'
           }
           if(!isChange){
-            $$(this).addClass('active');
+            $$(e).addClass('active');
             $$('.audio-tips').html(msg['end']);
+            $$('.js-audio-tool').removeClass('slideInUp animated').addClass('slideOutDown animated');
           }else{
-            $$(this).removeClass('active')
+            $$(e).removeClass('active')
             $$('.audio-tips').html(msg['start']);
-            this.openInput();
+            $$('.js-audio-tool').removeClass('slideOutDown animated').show().addClass('slideInUp animated');
           }
       },
-      //显示底部输入框
-      openInput:function() {
-
+      closeTool:function() {
+        $$('.js-audio-tool').hide();
+      },
+      openDialog:function(e) {
+          AFA.modal({
+            'title':'请选择操作',
+            verticalButtons: true,
+            buttons: [
+              {
+                text: '播放',
+                onClick: function() {
+                  AFA.alert('You clicked first button!')
+                }
+              },
+              {
+                text: '上传',
+                onClick: function() {
+                  AFA.alert('You clicked second button!')
+                }
+              },
+              {
+                text: '删除',
+                onClick: function() {
+                  AFA.alert('You clicked third button!')
+                }
+              },
+            ]
+          })
       }
+      
   }
   index.init();
 
