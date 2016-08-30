@@ -19,7 +19,8 @@ AFA.init = (function () {
       $$ = Dom7,
       //ipc = new AFA.pages.WelcomePageController(fw7App, $$)
       //ipc_index = new AFA.pages.HomePageController(fw7App, $$)
-      ipc_audio = new AFA.pages.AudioPageController(fw7App, $$)
+      //ipc_audio = new AFA.pages.AudioPageController(fw7App, $$)
+      ipc_client = new AFA.pages.ClientPageController(fw7App, $$)
   });
   
   return exports;
