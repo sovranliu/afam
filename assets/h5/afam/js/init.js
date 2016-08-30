@@ -17,7 +17,8 @@ AFA.init = (function () {
       },
       mainView = fw7App.addView('.view-main', fw7ViewOptions),
       $$ = Dom7,
-      ipc = new AFA.pages.WelcomePageController(fw7App, $$);
+      //ipc = new AFA.pages.WelcomePageController(fw7App, $$)
+      ipc_index = new AFA.pages.HomePageController(fw7App, $$)
   });
   
   return exports;
