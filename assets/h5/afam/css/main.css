@@ -46,21 +46,22 @@ ul,li{
 
 /*# sourceMappingURL=main.css.map */
 /*icon*/
-/*@font-face {font-family: 'iconfont';
+@font-face {font-family: 'iconfont';
     src: url('../lib/tools/icon/iconfont.eot'); 
     src: url('../lib/tools/icon/iconfont.eot?#iefix') format('embedded-opentype'), 
     url('../lib/tools/icon/iconfont.woff') format('woff'),
     url('../lib/tools/icon/iconfont.ttf') format('truetype'), 
     url('../lib/tools/icon/iconfont.svg#iconfont') format('svg'); 
-}*/
+}
+/*
 @font-face {
   font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_1472452370_6369884.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1472452370_6369884.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1472452370_6369884.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1472452370_6369884.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1472452370_6369884.svg#iconfont') format('svg'); /* iOS 4.1- */
-}
+  src: url('//at.alicdn.com/t/font_1472452370_6369884.eot'); 
+  src: url('//at.alicdn.com/t/font_1472452370_6369884.eot?#iefix') format('embedded-opentype'), 
+  url('//at.alicdn.com/t/font_1472452370_6369884.woff') format('woff'), 
+  url('//at.alicdn.com/t/font_1472452370_6369884.ttf') format('truetype'), 
+  url('//at.alicdn.com/t/font_1472452370_6369884.svg#iconfont') format('svg'); 
+}*/
                     
                     
 .iconfont{
@@ -71,8 +72,8 @@ ul,li{
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
-.f110{
-  font-size:110px;
+.f102{
+  font-size:102px;
 }
 .split-line{
   width: 100%;
@@ -87,6 +88,16 @@ ul,li{
   background: #44a0ea;
   color: #fff;
   height: 48px;
+}
+.navbar a.link{
+  height: 48px;
+  line-height: 48px;
+}
+.navbar .right{
+  margin-left: 0;
+}
+.navbar .center{
+  margin:0 auto;
 }
 .navbar-inner{
   position: relative;
@@ -170,11 +181,16 @@ ul,li{
 }
 .lhb-wrap .swiper-wrapper,.yz-wrap .swiper-wrapper{
   padding-bottom: 20px;
-  border-bottom: #f1f1f3 solid 1px;
 }
 .lhb-wrap .lhb-pagination,.yz-wrap .yz-pagination{
   position: relative;
   bottom: 20px;
+}
+.news-wrap .swiper-slide{
+  width: 96%;
+  border: #eee solid 1px;
+  border-radius: 10px;
+  margin: 0 2%;
 }
 .news-wrap .rank-list{
   text-align: left;
@@ -262,10 +278,10 @@ ul,li{
   color: #999;
 }
 .circle_lg{
-  width: 300px;
-  height: 300px;
-  border-radius: 150px;
-  margin: 10px auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 130px;
+  margin: 80px auto 0;
   background: #f5f6fb;
   border:#eee 1px solid;
 }
@@ -275,9 +291,9 @@ ul,li{
 }
 .circle_md{
   position: relative;
-  width: 280px;
-  height: 280px;
-  border-radius: 140px;
+  width: 240px;
+  height: 240px;
+  border-radius: 120px;
   margin: 10px auto;
   background: #44a0ea;
 }
@@ -285,9 +301,9 @@ ul,li{
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 260px;
-  height: 260px;
-  border-radius: 130px;
+  width: 220px;
+  height: 220px;
+  border-radius: 110px;
   background-color: #f5f6fa;
   background-image: linear-gradient(45deg, #efefef 25%, transparent 25%, transparent 75%, #efefef 75%, #efefef), 
       linear-gradient(45deg, #efefef 25%, transparent 25%, transparent 75%, #efefef 75%, #efefef);
@@ -295,8 +311,13 @@ ul,li{
   background-position: 0 0, 5px 5px;
 }
 .circle_sm .icon{
-  margin:48px 0 0 75px;
+  margin:34px 0 0 59px;
   color: #747785;
+}
+.audio-tips{
+    text-align: center;
+    color: #777;
+    font-size: 12px;
 }
 .tab-list,.list-block{
   margin:0 auto;
