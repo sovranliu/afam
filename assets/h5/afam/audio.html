@@ -19,20 +19,19 @@
     <div class="panel-overlay"></div>
   
     <!-- Views-->
-    <div class="views">
+    <div class="views js-audio-view">
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main">
         <!-- Top Navbar-->
         <div class="navbar">
           <div class="navbar-inner">
             <div class="left">
-              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only"> <i class="icon iconfont">&#xe618;</i></a>
+              <a href="#" class="link icon-only">
+                <i class="icon icon-back"></i>
+              </a>
             </div>
             <!-- We have home navbar without left link-->
             <div class="center">AFA</div>
-            <div class="right">
-              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only"> <i class="icon iconfont">&#xe620;</i></a>
-            </div>
           </div>
         </div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
@@ -44,7 +43,7 @@
               <div class="content-block tab-nav">
                 <div class="buttons-row">
                   <a href="#tab1" class="tab-link active button"><i class="icon iconfont">&#xe627;</i> 录音</a>
-                  <a href="#tab2" class="tab-link button"><i class="icon iconfont">&#xe62c;</i> 历史</a>
+                  <a href="#tab2" class="tab-link button tab-history"><i class="icon iconfont">&#xe62c;</i> 历史</a>
                 </div>
               </div>
               <div class="tabs">
@@ -64,11 +63,12 @@
                   <div class="content-block tab-list">
                     <div class="list-block media-list">
                       <ul>
-                        <li class="swipeout">
+                        <li class="swipeout open-vertical-modal">
                           <div class="item-content swipeout-content">
                             <div class="item-inner">
                               <div class="item-title-row">
-                                <div class="item-title">2016-08-22 17:14:55</div>
+                                <div class="item-title">李总的录音</div>
+                                <div class="item-after">2016-08-22 17:14:55</div>
                               </div>
                               <div class="item-title-row">
                                 <div class="audio-wrap">
@@ -79,28 +79,6 @@
                               </div>
                             </div>
                           </div>
-                          <div class="swipeout-actions-right">
-                              <a class="swipeout-delete">删除</a>
-                            </div>
-                        </li>
-                        <li class="swipeout">
-                          <div class="item-content swipeout-content">
-                            <div class="item-inner">
-                              <div class="item-title-row">
-                                <div class="item-title">2016-08-22 17:14:55</div>
-                              </div>
-                              <div class="item-title-row">
-                                <div class="audio-wrap">
-                                  <audio src=""></audio>
-                                  <span>05'22''</span>
-                                  <i class="icon iconfont">&#xe62a;</i>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="swipeout-actions-right">
-                              <a class="swipeout-delete">删除</a>
-                            </div>
                         </li>
                       </ul>
                     </div>
@@ -112,8 +90,12 @@
           </div>
         </div>
         <!-- Bottom Toolbar-->
-        <div class="toolbar">
-          <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>
+        <div class="toolbar js-audio-tool">
+          <div class="toolbar-inner">
+            <a href="#" class="link"><i class="icon iconfont">&#xe679;</i></a>
+            <input type="text">
+            <a href="#" class="link"><i class="icon iconfont">&#xe678;</i></a>
+          </div>
         </div>
       </div>
     </div>
