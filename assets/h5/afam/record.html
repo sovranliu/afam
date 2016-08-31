@@ -11,6 +11,28 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/main.css">
+
+	<script id="template_record" type="text/template7">
+	{{#each this}}
+<li data-url="{{url}}" class="swipeout open-vertical-modal">
+  <div class="item-content swipeout-content">
+	<div class="item-inner">
+	  <div class="item-title-row">
+		<div class="item-title">{{title}}</div>
+		<div class="item-after">{{time}}</div>
+	  </div>
+	  <div class="item-title-row">
+		<div class="audio-wrap">
+		  <audio src=""></audio>
+		  <span>{{js "(this.duration - (this.duration % 60)) / 60"}}'{{js "this.duration % 60"}}''</span>
+		  <i class="icon iconfont">&#xe62a;</i>
+		</div>
+	  </div>
+	</div>
+  </div>
+</li>
+	{{/each}}
+	</script>
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -31,7 +53,7 @@
               </a>
             </div>
             <!-- We have home navbar without left link-->
-            <div class="center">AFA</div>
+            <div class="center">录音机</div>
           </div>
         </div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->

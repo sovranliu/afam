@@ -18,7 +18,8 @@ $Controller.methods = function() {
 				_this.recordCircle(this)
 			});
 			$$('.open-vertical-modal').on('click', function () {
-				_this.openDialog(this);
+				_this.path = this.data('url');
+				_this.openDialog();
 			}); 
 			$$('.tab-history').on('click',this.closeTool);
 			$$('#btn_play').on('click',function() {
@@ -29,6 +30,7 @@ $Controller.methods = function() {
 				$$('.audio-tips').html(msg['start']);
 				$$('.js-audio-tool').removeClass('slideInUp animated').addClass('slideOutDown animated');
 			});
+			this.loadRecordHistory();
 		},
 		"recordCircle":function(e) {
 			var classname = $$(e).attr('class');
@@ -46,10 +48,20 @@ $Controller.methods = function() {
 				path = bridge('recorder').call('end');
 			}
 		},
+		"loadRecordHistory":function() {
+			$$.getJSON(S_DOMAIN + '/afam/rest/recordlHistory', {}, function(resp) {
+				if(resp.code < 0) {
+					bridge('window').call('tip', resp.msg || '录音历史服务错误');
+					return;
+				}
+				var html = Template7.templates.template_record(resp.data);
+				$$('.media-list ul').html(html);
+			});
+		},
 		"closeTool":function() {
 			$$('.js-audio-tool').hide();
 		},
-		"openDialog":function(e) {
+		"openDialog":function() {
 			var _this = this;
 			$Controller.f7.modal({
 				"title":"请选择操作",
