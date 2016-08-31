@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="AFA">
-    
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <title>MyApp</title>
+        <title>AFA - 欢迎</title>
         <!-- Path to Framework7 Library CSS-->
         <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
         <!-- Path to your custom app styles-->
@@ -16,10 +15,9 @@
         <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
         <script type="text/javascript" src="lib/welcome/welcomescreen.js"></script>
         <script type="text/javascript" src="lib/tools/bridge.js"></script>
-        <script type="text/javascript" src="js/pages/WelcomePageController.js"></script>
-        <script type="text/javascript" src="js/init.js"></script>
+        <script type="text/javascript" src="js/page.js"></script>
+        <script type="text/javascript" src="js/controller/page.welcome.js"></script>
     </head>
-    
     <body>
         <!-- Header -->
         <!-- Status bar overlay for fullscreen mode-->
@@ -35,7 +33,7 @@
                 <div class="navbar">
                     <!-- Navbar page 1 -->
                     <div class="navbar-inner">
-                        <div class="center sliding">Framework7 Welcome Screen</div>
+                        <div class="center sliding">Welcome Screen</div>
                     </div>
                 </div> 
                 <!-- Pages, because we need fixed-through navbar and toolbar, it has additional

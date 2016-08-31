@@ -45,6 +45,12 @@ ul,li{
 .orange{
   color: #ff885a;
 }
+.gray{
+  color: #ccc;
+}
+.red{
+  color: #ff6668;
+}
 .clearfix{overflow:auto;_height:1%}
 
 /*# sourceMappingURL=main.css.map */
@@ -116,13 +122,13 @@ ul,li{
 }
 /*slide*/
 .adver-wrap .swiper-slide{
-  height: 140px;
+  height: 100px;
   background: #999;
 }
 .adver-wrap .swiper-slide img{
   background-size: cover;
   width: 100%;
-  height: 140px;
+  height: 100px;
 }
 .adver-wrap .swiper-pagination-bullet-active{
   background: #fff;
@@ -195,17 +201,16 @@ ul,li{
   position: relative;
   bottom: 20px;
 }
-.news-wrap .swiper-slide{
-  width: 96%;
-  border: #eee solid 1px;
-  border-radius: 10px;
-  margin: 0 2%;
-}
+
 .news-wrap .rank-list{
   text-align: left;
   width: 100%;
 }
 .news-wrap .rank-title{
+  width: 96%;
+  margin:0 2%;
+  border: #eee solid 1px;
+  border-radius: 10px;
   color: #777;
 }
 .news-wrap .rank-list li{
@@ -337,7 +342,6 @@ ul,li{
 }
 .list-block .item-title{
   margin-left: 3px;
-  color: #333;
   font-size: 14px;
 }
 .list-block .item-after{
@@ -392,6 +396,42 @@ ul,li{
     background-color: #fff;
     -webkit-background-size: 13px 13px;
     background-size: 13px 13px;
+}
+/********* 客户页 *********/
+.js-client-view .searchbar{
+  background: #44a0ea;
+}
+.js-client-view .searchbar input[type=search]{
+  border-bottom: 0
+}
+.js-client-view  .navbar-through .page>.searchbar{
+  top: 0
+}
+.js-client-view  .navbar-through .page>.searchbar~.page-content{
+  padding-top: 48px;
+}
+.js-client-view .client-title li:not(.list-group-title){
+  padding-left: 0;
+}
+.js-client-view .client-title li{
+  border-right:#eee solid 1px;
+}
+.js-client-view .client-title li:last-child{
+  border-right:0;
+}
+.js-client-view .client-list ul{
+  padding: 5px 0;
+  border-bottom: #eee solid 1px;
+}
+.js-client-view .client-title li,.js-client-view .client-list li{
+  width: 33%;
+  padding:5px 0;
+  text-align: center;
+  color: #757575;
+  float: left;
+}
+.js-client-view .client-list .item-title{
+  font-size: 13px;
 }
 .animated {
   -webkit-animation-duration: 1s;

@@ -79,5 +79,4 @@ AFA.pages.HomePageController = function (AFA, $$) {
       }
   	};
     index.init();
-  
 };
