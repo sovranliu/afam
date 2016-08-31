@@ -7,6 +7,10 @@ $Controller.bind = function() {
 $Controller.methods = function() {
 	var path = null;
 	var playing = false;
+	var msg = {
+		"start":"点击开始录音",
+		"end":"点击结束录音"
+	};
 	return {
 		"prepare":function() {
 			var _this = this;
@@ -21,16 +25,14 @@ $Controller.methods = function() {
 				_this.playOrStop();
 			});
 			$$('#btn_save').on('click',function() {
-				$Controller.f7.alert('保存成功！');
+				bridge('window').call('tip', '保存成功！');
+				$$('.audio-tips').html(msg['start']);
+				$$('.js-audio-tool').removeClass('slideInUp animated').addClass('slideOutDown animated');
 			});
 		},
 		"recordCircle":function(e) {
 			var classname = $$(e).attr('class');
 			var	isChange = classname.indexOf('active') == -1?false:true;
-			var msg = {
-				"start":"点击开始录音",
-				"end":"再次点击结束录音"
-			};
 			if(!isChange){
 				$$(e).addClass('active');
 				$$('.audio-tips').html(msg['end']);
@@ -68,7 +70,7 @@ $Controller.methods = function() {
 					{
 						text: "删除",
 						onClick: function() {
-							$Controller.f7.alert('删除成功！');
+							bridge('window').call('tip', '删除成功！');
 						}
 					},
 				]
