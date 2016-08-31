@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AFA</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="../lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="../lib/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+  
+    <!-- Views-->
+    <div class="views js-info-view">
+      <div class="view view-main">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only">
+                <i class="icon icon-back"></i>
+              </a>
+            </div>
+            <!-- We have home navbar without left link-->
+            <div class="center">张三</div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="clientDetailInfo" class="page">
+                <div class="page-content">
+                    <!-- 个人信息 -->
+                    <div class="client-info">
+                        <div class="client-other">
+                            <div class="client-photo fl">
+                                <img src="../image/user.png" alt="">
+                                <p class="client-name">张三 <i class="icon iconfont orange">&#xe67a;</i></p>
+                            </div>
+                            <div class="client-detail fr">
+                                <div class="client-amount">总资产：<span>200,222,345,12</span></div>
+                                <div class="client-profile">资金账号：424234234234</div>
+                                <div class="client-profile"></div>
+                            </div>
+                        </div>
+                        <div class="client-open fl">
+                            <div class="open-name">开户日期</div>
+                            <div class="open-info">2016-08-11</div>
+                        </div>
+                        <div class="client-open fl">
+                            <div class="open-name">存管银行</div>
+                            <div class="open-info">兴业银行</div>
+                        </div>
+                        <div class="client-open fr">
+                            <div class="open-name">沪A最低佣金</div>
+                            <div class="open-info">3320.00</div>
+                        </div>
+                    </div>
+                    <!-- 资产信息 -->
+                    <div class="content-block-title">资产信息</div>
+                    <div class="client-list-wrap">
+                        <div class="client-list">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list nobr">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list nobr">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                        <div class="client-list nobr">
+                            <p>二级市值</p>
+                            <p class="red">982,223,11</p>
+                        </div>
+                    </div>
+                    <div class="client-chart-wrap">
+                        
+                    </div>
+                    <div class="split-line"></div>
+                    <div class="content-block-title">风险特征</div>
+                    <div class="client-list-wrap row">
+                        <div class="col-50 fl">
+                            <span class="title blue"><i class="icon iconfont">&#xe638;</i>风险承受</span>
+                            <span class="content">相对积极型</span>
+                        </div>
+                        <div class="col-50 fr nobr">
+                            <span class="title blue"><i class="icon iconfont">&#xe645;</i>测评到期日期</span>
+                            <span class="content">2016-09-22</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="../lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="../lib/tools/chart.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="../js/page.js"></script>
+    <script type="text/javascript" src="../js/controller/page.info.js"></script>
+  </body>
+</html>

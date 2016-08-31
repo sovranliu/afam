@@ -1,4 +1,4 @@
-// client page controller
+// home page controller
 
 $Controller.bind = function() {
 	$Controller.methods.prepare();
@@ -6,7 +6,7 @@ $Controller.bind = function() {
 
 $Controller.methods = function() {
 	return {
-		"prepare":function() {
+		prepare:function() {
 			//
 			$$('.searchbar-input').on('inputpropertychange', function() {
 				this.refresh(this.val());
@@ -17,7 +17,7 @@ $Controller.methods = function() {
 			// 加载数据
 			this.refresh('');
 		},
-		"refresh":function(key) {
+		refresh:function(key) {
 			$$.getJSON(S_DOMAIN + '/afam/rest/clients', {"key":key}, function(resp) {
 				if(resp.code < 0) {
 					bridge('window').call('tip', resp.msg || '客户列表服务错误');
@@ -27,7 +27,7 @@ $Controller.methods = function() {
 				$$('.client-list').html(html);
 			});
 		},
-		"load":function(key) {
+		load:function(key) {
 			$$.getJSON(S_DOMAIN + '/afam/rest/clients', {"key":key}, function(resp) {
 				if(resp.code < 0) {
 					bridge('window').call('tip', resp.msg || '客户列表服务错误');
