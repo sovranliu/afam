@@ -7,17 +7,18 @@ $Controller.bind = function() {
 $Controller.methods = function() {
 	return {
 		prepare:function() {
-			//
-			$$('.searchbar-input').on('inputpropertychange', function() {
-				this.refresh(this.val());
+			var _this = this;
+			$$('.searchbar-input').on('input propertychange', function() {
+				_this.refresh($$(this).find('input').val());
 			});
 			$$('.infinite-scroll').on('infinite', function () {
-				this.load($$('.searchbar-input').val());
+				_this.load($$('.searchbar-input').val());
 			});
 			// 加载数据
-			this.refresh('');
+			_this.refresh('');
 		},
 		refresh:function(key) {
+			console.log(key)
 			$$.getJSON(S_DOMAIN + '/afam/rest/clients', {"key":key}, function(resp) {
 				if(resp.code < 0) {
 					bridge('window').call('tip', resp.msg || '客户列表服务错误');

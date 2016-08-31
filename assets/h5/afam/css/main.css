@@ -207,12 +207,10 @@ ul,li{
 .news-wrap .news-block{
   padding: 10px;
 }
-.lhb-wrap .swiper-wrapper,.yz-wrap .swiper-wrapper{
-  padding-bottom: 20px;
-}
+
 .lhb-wrap .lhb-pagination,.yz-wrap .yz-pagination{
   position: relative;
-  bottom: 20px;
+  bottom: 0;
 }
 
 .news-wrap .rank-list{

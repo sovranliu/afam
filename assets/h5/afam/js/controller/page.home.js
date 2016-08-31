@@ -13,6 +13,7 @@ $Controller.methods = function() {
 			this.swipe('.lhb-wrap','.lhb-pagination');
 			this.swipe('.yz-wrap','.yz-pagination');
 			this.initNews();
+			this.sendGEO();
 			// 加载数据
 			this.loadBanner();
 			this.loadTopTransaction();
@@ -27,6 +28,12 @@ $Controller.methods = function() {
 				'observeParents':true
 			};
 			var mySwiper = $Controller.f7.swiper(wrap, options);
+		},
+		sendGEO:function(){
+			$$('.link').on('click',function(){
+				//TODO 发送经纬度等信息
+				$Controller.f7.alert('签到成功！','');
+			})
 		},
 		loadBanner:function() {
 			$$.getJSON(S_DOMAIN + '/afam/rest/banner', {}, function(resp) {
