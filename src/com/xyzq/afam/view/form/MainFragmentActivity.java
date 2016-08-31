@@ -14,6 +14,8 @@ import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.carl.communication.Networking;
+import com.xyzq.simpson.carl.etc.Controller;
+import com.xyzq.simpson.carl.etc.ParameterRunnable;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.FragmentEx;
 import com.xyzq.simpson.marge.Client;
@@ -69,15 +71,15 @@ public class MainFragmentActivity extends FragmentEx {
 	                startActivity(intent);
 	                browser.pauseTimers();
 	                browser.resumeTimers();
-	                return false;
+	                return true;
 	            }
-				else if(url.startsWith("new://")) {
+				else if(url.startsWith("new://")) {						
 					Intent intent = new Intent(MainFragmentActivity.this.getActivity(), LogicActivity.class);
 					intent.putExtra("url", url.substring("new://".length()));
 					startActivity(intent);
 					browser.pauseTimers();
 					browser.resumeTimers();
-	                return false;
+	                return true;
 				}
 	            return super.shouldOverrideUrlLoading(view, url);
 			}

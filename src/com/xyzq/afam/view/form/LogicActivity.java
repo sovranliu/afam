@@ -60,7 +60,7 @@ public class LogicActivity extends ActivityEx {
 	                startActivity(intent);
 	                webBrowser.pauseTimers();
 	                webBrowser.resumeTimers();
-	                return false;
+	                return true;
 	            }
 				else if(url.startsWith("new://")) {
 					Intent intent = new Intent(LogicActivity.this, LogicActivity.class);
@@ -68,7 +68,7 @@ public class LogicActivity extends ActivityEx {
 					startActivity(intent);
 					webBrowser.pauseTimers();
 					webBrowser.resumeTimers();
-	                return false;
+	                return true;
 				}
 	            return super.shouldOverrideUrlLoading(view, url);
 			}

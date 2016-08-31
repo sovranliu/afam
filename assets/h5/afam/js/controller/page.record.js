@@ -14,6 +14,9 @@ $Controller.methods = function() {
 	return {
 		"prepare":function() {
 			var _this = this;
+			$$('#btn_close').on('click',function(){
+				bridge('window').call('close');
+			});
 			$$('.circle_lg').on('click',function(){
 				_this.recordCircle(this)
 			});
