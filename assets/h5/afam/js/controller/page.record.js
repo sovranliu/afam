@@ -18,7 +18,7 @@ $Controller.methods = function() {
 				_this.recordCircle(this)
 			});
 			$$('.open-vertical-modal').on('click', function () {
-				_this.path = this.data('url');
+				_this.path = $$(this).data('url');
 				_this.openDialog();
 			}); 
 			$$('.tab-history').on('click',this.closeTool);
@@ -46,6 +46,7 @@ $Controller.methods = function() {
 				$$('.audio-tips').html(msg['start']);
 				$$('.js-audio-tool').removeClass('slideOutDown animated').show().addClass('slideInUp animated');
 				path = bridge('recorder').call('end');
+				console.log(path);
 			}
 		},
 		"loadRecordHistory":function() {
@@ -89,6 +90,7 @@ $Controller.methods = function() {
 			});
 		},
 		"playOrStop":function(e) {
+			console.log(path);
 			if(playing) {
 				bridge('recorder').call('stop');
 				playing = false;

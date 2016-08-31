@@ -8,17 +8,17 @@ import android.webkit.WebViewClient;
 
 import com.xyzq.afam.Program;
 import com.xyzq.afam.R;
+import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
-import com.xyzq.simpson.sherry.general.view.form.BrowserActivity;
 
 /**
  * 逻辑 Web页
  */
-@ResourceView(id = R.layout.activity_load)
+@ResourceView(id = R.layout.activity_logic)
 public class LogicActivity extends ActivityEx {
 	@ResourceView(id = R.id.logic_browser)
 	public BridgeWebView webBrowser;
@@ -50,6 +50,7 @@ public class LogicActivity extends ActivityEx {
 		webBrowser.prepare();
 		webBrowser.inject("user", User.class);
 		webBrowser.inject("window", new Window(this));
+		webBrowser.inject("recorder", Recorder.class);
 		webBrowser.loadUrl(this.getIntent().getStringExtra("url"));
 		webBrowser.setWebViewClient(new WebViewClient() {
 			@Override
@@ -62,7 +63,7 @@ public class LogicActivity extends ActivityEx {
 	                return false;
 	            }
 				else if(url.startsWith("new://")) {
-					Intent intent = new Intent(LogicActivity.this, BrowserActivity.class);
+					Intent intent = new Intent(LogicActivity.this, LogicActivity.class);
 					intent.putExtra("url", url.substring("new://".length()));
 					startActivity(intent);
 					webBrowser.pauseTimers();
