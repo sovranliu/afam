@@ -37,7 +37,7 @@
 			</intent-filter>
 		</activity>
 		<activity android:name="com.xyzq.afam.view.form.LoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-		<activity android:name="com.xyzq.afam.view.form.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+		<activity android:name="com.xyzq.afam.view.form.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="adjustPan" />
 		<activity android:name="com.xyzq.afam.view.form.LogicActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 		<!-- Pretty所需注册窗口 -->
 		<activity android:name="com.xyzq.simpson.sherry.im.view.form.SingleChatActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
