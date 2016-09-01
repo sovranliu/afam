@@ -30,7 +30,7 @@ $Controller.methods = function() {
 			var mySwiper = $Controller.f7.swiper(wrap, options);
 		},
 		sendGEO:function(){
-			$$('.link').on('click',function(){
+			$$('.js-mark').on('click',function(){
 				//TODO 发送经纬度等信息
 				$Controller.f7.alert('签到成功！','');
 			})
