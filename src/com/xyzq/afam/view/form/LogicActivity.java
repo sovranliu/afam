@@ -11,6 +11,7 @@ import com.xyzq.afam.R;
 import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
+import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
@@ -51,6 +52,7 @@ public class LogicActivity extends ActivityEx {
 		webBrowser.inject("user", User.class);
 		webBrowser.inject("window", new Window(this));
 		webBrowser.inject("recorder", Recorder.class);
+		Tools.displayLoading(this, null);
 		webBrowser.loadUrl(this.getIntent().getStringExtra("url"));
 		webBrowser.setWebViewClient(new WebViewClient() {
 			@Override
@@ -80,6 +82,7 @@ public class LogicActivity extends ActivityEx {
 			@Override 
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
+				Tools.hideLoading();
 				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 			}
 		});

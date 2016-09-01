@@ -3,6 +3,7 @@ package com.xyzq.afam.business.inject;
 import java.util.ArrayList;
 
 import com.xyzq.afam.Program;
+import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.base.json.JSONArray;
 import com.xyzq.simpson.base.json.JSONString;
 import com.xyzq.simpson.base.json.core.IJSON;
@@ -61,5 +62,21 @@ public class Window {
 	 */
 	public void tip(String text) {
 		Toast.makeText(activity, text, Toast.LENGTH_LONG).show();
+	}
+
+	/**
+	 * 弹出加载对话框
+	 * 
+	 * @param text 文本
+	 */
+	public void displayLoading(String text) {
+		Tools.displayLoading(activity, text);
+	}
+
+	/**
+	 * 取消加载对话框
+	 */
+	public void hideLoading() {
+		Tools.hideLoading();
 	}
 }

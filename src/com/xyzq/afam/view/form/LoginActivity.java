@@ -12,12 +12,12 @@ import android.widget.TextView;
 
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.Me;
+import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.base.model.core.IEventable;
 import com.xyzq.simpson.base.text.Text;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
-import com.xyzq.simpson.sherry.general.utility.GeneralHelper;
 import com.xyzq.simpson.sherry.general.view.form.BrowserActivity;
 import com.xyzq.simpson.sherry.general.view.form.EnvironmentActivity;
 
@@ -39,11 +39,6 @@ public class LoginActivity extends ActivityEx {
     @ResourceView(id = R.id.login_label_protocol)
     public TextView labProtocol;
 
-
-	/**
-	 * 等待对话框
-	 */
-	private AlertDialog dialog = null;
 
     /**
      * 界面创建
@@ -89,15 +84,12 @@ public class LoginActivity extends ActivityEx {
 				if(Text.isBlank(password)) {
 					return;
 				}
-				dialog = GeneralHelper.showWaiting(LoginActivity.this);
+				Tools.displayLoading(LoginActivity.this, "登录中");
 				Me.login(LoginActivity.this, phone, password, new IEventable<Boolean>() {
 					@SuppressWarnings("deprecation")
 					@Override
 					public void on(Boolean result) {
-						if(null != dialog) {
-							dialog.cancel();
-						}
-						dialog = null;
+						Tools.hideLoading();
 						if(!result) {
 							return;
 						}

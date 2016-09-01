@@ -10,6 +10,7 @@ import com.xyzq.afam.R;
 import com.xyzq.afam.business.Me;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Logger;
+import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.base.model.core.IEventable;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.etc.Controller;

@@ -12,6 +12,7 @@ import com.xyzq.afam.R;
 import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
+import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
@@ -60,6 +61,7 @@ public class MainFragmentActivity extends FragmentEx {
 		if(null != Client.resource("afam").fetch(url)) {
 			url = Client.resource("afam").fetch(url);
 		}
+		Tools.displayLoading(this.getActivity(), null);
 		browser.loadUrl(url);
 		browser.setWebViewClient(new WebViewClient() {
 			@Override
@@ -89,6 +91,7 @@ public class MainFragmentActivity extends FragmentEx {
 			@Override 
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
+				Tools.hideLoading();
 				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 			}
 		});
