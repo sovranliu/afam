@@ -8,10 +8,10 @@ $Controller.methods = function() {
 	var loading = false;
 	return {
 		prepare:function() {
-			this.initChart();
-
+			this.initPieChart();
+			this.switchTab();
 		},
-		initChart:function() {
+		initPieChart:function() {
 			var randomScalingFactor = function() {
 		        return Math.round(Math.random() * 100);
 		    };
@@ -32,42 +32,14 @@ $Controller.methods = function() {
 		                    randomScalingFactor(),
 		                    randomScalingFactor(),
 		                ],
+		        		borderWidth:1,
+
 		                backgroundColor: [
-		                    "#F7464A",
-		                    "#46BFBD",
-		                    "#FDB45C",
-		                    "#949FB1",
-		                    "#4D5360",
-		                ],
-		            }, {
-		                data: [
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                ],
-		                backgroundColor: [
-		                    "#F7464A",
-		                    "#46BFBD",
-		                    "#FDB45C",
-		                    "#949FB1",
-		                    "#4D5360",
-		                ],
-		            }, {
-		                data: [
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                ],
-		                backgroundColor: [
-		                    "#F7464A",
-		                    "#46BFBD",
-		                    "#FDB45C",
-		                    "#949FB1",
-		                    "#4D5360",
+		                    "#ff6668",
+		                    "#01c195",
+		                    "#f9c051",
+		                    "#999999",
+		                    "#44a0ea",
 		                ],
 		            }],
 		            labels: [
@@ -75,18 +47,40 @@ $Controller.methods = function() {
 		                "Green",
 		                "Yellow",
 		                "Grey",
-		                "Dark Grey"
+		                "Blue"
 		            ]
 		        },
 		        options: {
-		            responsive: true
-		        }
+		            responsive: true,
+		            legend: {
+			            display: true,
+			            position:'right',
+			            labels: {
+			                boxWidth:10
+			            }
+			        }
+		        },
 		    };
 		    window.onload = function() {
 		        var ctx = document.getElementById("chart-area").getContext("2d");
 		        window.myPie = new Chart(ctx, config);
 		    };
 		},
-		
+		switchTab:function() {
+			$$('.js-tab-finacne i').on('click',function(){
+				var index = $$(this).index();//0 - chart ; 1 - list
+				if(index == 0){
+					$$('.js-show-chart').addClass('active');
+					$$(this).next().removeClass('active');
+					$$('.client-chart-wrap').show();
+					$$('.client-list-wrap').hide()
+				}else{
+					$$('.js-show-list').addClass('active');
+					$$(this).prev().removeClass('active');
+					$$('.client-chart-wrap').hide();
+					$$('.client-list-wrap').show()
+				}
+			})
+		},
 	};
 }();
