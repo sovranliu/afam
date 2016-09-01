@@ -1,7 +1,9 @@
 body,.page{
+  -webkit-overflow-scrolling: touch;
   background: #fbfcfe;
   font: 13px/20px Microsoft Yahei;
 }
+
 ul,li{
   list-style: none;
   padding:0;
@@ -12,8 +14,8 @@ canvas {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-.view{
-  padding-bottom: 50px;
+.pages{
+  margin-bottom: 50px;
 }
 .client-list-wrap,.client-list,.split-line,.client-chart-wrap{
     border-style: solid;
@@ -32,7 +34,18 @@ canvas {
   border-radius: 10px;
   color: #0da6ec;
 }
-
+.list-block li.media-item .item-link .item-inner, .list-block.media-list .item-link .item-inner{
+  overflow: hidden;
+}
+.list-block li.media-item .item-link .item-title-row, .list-block.media-list .item-link .item-title-row{
+  background-image: none
+}
+.list-block li.media-item .item-inner, .list-block.media-list .item-inner,.list-block li.media-item .item-media, .list-block.media-list .item-media{
+  padding: 5px 0;
+}
+.list-block .item-text{
+  font-size: 12px;
+}
 .welcomescreen-container .welcomescreen-text a{
   color: #fff;
   text-decoration: underline;

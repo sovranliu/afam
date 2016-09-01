@@ -12,6 +12,7 @@ $Controller.methods = function() {
 			this.swipe('.adver-wrap','.adver-pagination');
 			this.swipe('.lhb-wrap','.lhb-pagination');
 			this.swipe('.yz-wrap','.yz-pagination');
+			this.initNav();
 			this.initNews();
 			this.sendGEO();
 			// 加载数据
@@ -19,6 +20,15 @@ $Controller.methods = function() {
 			this.loadTopTransaction();
 			this.loadTopTransfer();
 			this.loadNews();
+		},
+		initNav:function() {
+			console.log($$(window))
+			window.onscroll = function(){
+				console.log(window);
+				var top = $$(document).scrollTop();
+			$Controller.views.main.hideNavbar();
+
+			}
 		},
 		swipe:function(wrap,pagination) {
 			var options = {
