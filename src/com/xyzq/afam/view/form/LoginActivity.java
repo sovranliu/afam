@@ -1,6 +1,5 @@
 package com.xyzq.afam.view.form;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
