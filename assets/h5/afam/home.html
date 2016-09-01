@@ -15,7 +15,11 @@
 	<script id="template_banner" type="text/template7">
 	{{#each this}}
 <div class="swiper-slide">
+{{#js_compare "'' == this.url || String.fromCharCode(35) == this.url"}}
 	<a data-id="{{id}}" href="{{url}}" class="external"><img src="{{image}}" alt /></a>
+{{else}}
+	<a data-id="{{id}}" href="{{url}}" class="external" target="_blank"><img src="{{image}}" alt /></a>
+{{/js_compare}}
 </div>
 	{{/each}}
 	</script>
@@ -67,7 +71,7 @@
 	<script id="template_news" type="text/template7">
 	{{#each this}}
 <li>
-	<a href="{{url}}" class="item-link item-content external">
+	<a href="{{url}}" class="item-link item-content external" target="_blank">
 		<div class="item-media">
 			<img src="{{image}}" width="80">
 		</div>
