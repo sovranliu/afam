@@ -5,12 +5,21 @@ $Controller.bind = function() {
 };
 
 $Controller.methods = function() {
-	var loading = false;
+	var name = null;
+	var im = null;
 	return {
 		prepare:function() {
+			var _this = this;
 			this.initNav();
 			this.initPieChart();
 			this.switchTab();
+			$$('#btn_close').on('click',function(){
+				bridge('window').call('close');
+			});
+			$$('#client_chat').on('click', function() {
+				bridge('user').call('chat', _this.name, _this.im);
+			});
+			this.refresh();
 		},
 		initNav:function() {
 			$$('.page-content').on('scroll', function(){
@@ -99,7 +108,7 @@ $Controller.methods = function() {
 				return;
 			}
 			s = s.substr(1);
-			var arr_p = str.split("&");
+			var arr_p = s.split("&");
 			for(var i in arr_p) {
 				if('' == arr_p[i].trim()) continue;
 				var arr_kv = arr_p[i].split("=");
@@ -111,20 +120,43 @@ $Controller.methods = function() {
 			return null;
 		},
 		refresh:function() {
+			var _this = this;
 			var aId = this.getAId();
 			if(null == aId) {
 				return;
 			}
 			$$.getJSON(S_DOMAIN + '/afam/rest/clientprofile', {"aid":aId}, function(resp) {
 				if(resp.code < 0) {
-					bridge('window').call('tip', resp.msg || '客户概况服务错误');
+					bridge('window').call('tip', resp.msg || '瀹㈡埛姒傚喌鏈嶅姟閿欒');
 					return;
 				}
 				var data = resp.data;
-				$$('#client_name').text(data.name);
-				$$('#client_chart').on('click', function() {
-					bridge('user').call('chat', data.name, data.im);
-				});
+				_this.im = data.im;
+				_this.name = data.name; ;
+				if('female' == data.gender) {
+					$$('.client-name').html(data.name + ' <i class="icon iconfont">&#xe67a;</i>');
+				}
+				else {
+					$$('.client-name').html(data.name + ' <i class="icon iconfont">&#xe67b;</i>');
+				}
+				$$('.client-amount span').html(data.amount);
+				$$('#client_aid span').html(data.accountId);
+				$$('#client_phone span').html(data.phone);
+				$$('#client_idcard span').html(data.idNumber + '/' + data.idcardExpire);
+				var account = data.account;
+				$$('#account_createdate').html(account.createDate);
+				$$('#account_bank').html(account.bank);
+				$$('#account_commission').html(account.commission);
+				var kv = data.assets;
+				for(var key in data.pay) {
+					kv[key] = data.pay[key];
+				}
+				var html = Template7.templates.template_assets(kv);
+				$$('.client-list-wrap').html(html);
+				var risk = data.risk;
+				$$('#risk-category').html(risk.category);
+				$$('#risk-expire').html(risk.expire);
+				$$('.client-other-wrap').html(data.tag);
 			});
 		}
 	};

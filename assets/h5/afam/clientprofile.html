@@ -13,22 +13,10 @@
     <link rel="stylesheet" href="css/main.css">
 	<script id="template_assets" type="text/template7">
 	{{#each this}}
-<ul class="clearfix" data-im="{{im}}">
-	<li>
-		<div class="item-title">{{name}}
-		{{#unless msgCount}}
-		{{else}}
-			[{{msgCount}}]
-		{{/unless}}
-		</div>
-	</li>
-	<li>
-		<div class="item-title gray">{{id}}</div>
-	</li>
-	<li>
-		<div class="item-title red">{{amount}}</div>
-	</li>
-</ul>
+<div class="client-list">
+	<p>{{@key}}</p>
+	<p class="red">{{this}}</p>
+</div>
 	{{/each}}
 	</script>
   </head>
@@ -43,14 +31,14 @@
         <div class="navbar">
           <div class="navbar-inner">
             <div class="left">
-              <a href="#" class="link icon-only">
+              <a id="btn_close" href="#" class="link icon-only">
                 <i class="icon icon-back"></i>
               </a>
             </div>
             <!-- We have home navbar without left link-->
-            <div id="client_name" class="center">客户姓名</div>
+            <div class="center">客户全景图</div>
             <div class="right">
-              <a id="client_chart" href="#" class="link icon-only external" target="_blank">
+              <a id="client_chat" href="#" class="link icon-only" target="_blank">
                 <i class="icon iconfont">&#xe63c;</i>
               </a>
             </div>
@@ -64,27 +52,27 @@
                         <div class="client-other">
                             <div class="client-photo fl">
                                 <img src="image/user.png" alt="">
-                                <p class="client-name">张三<i class="icon iconfont orange">&#xe67a;</i></p>
+                                <p class="client-name">张三 <i class="icon iconfont orange">&#xe67a;</i></p>
                             </div>
                             <div class="client-detail fr">
                                 <div class="client-amount">总资产：<span>200,222,345,12</span></div>
-                                <div class="client-profile">资金账号：424234234234</div>
-                                <div class="client-profile">手机号码：13414732566</div>
-                                <div class="client-profile">身份证/到期日：320112197709239899/2030-09-22</div>
+                                <div id="client_aid" class="client-profile">资金账号：<span>000000</span></div>
+                                <div id="client_phone" class="client-profile">手机号码：<span>15000000000</span></div>
+                                <div id="client_idcard" class="client-profile">身份证/到期日：<br /><span>340000000000/0000-00-00</span></div>
                                 <div class="client-profile"></div>
                             </div>
                         </div>
                         <div class="client-open fl">
                             <div class="open-name">开户日期</div>
-                            <div class="open-info">2016-08-11</div>
+                            <div id="account_createdate" class="open-info">0000-00-00</div>
                         </div>
                         <div class="client-open fl">
                             <div class="open-name">存管银行</div>
-                            <div class="open-info">兴业银行</div>
+                            <div id="account_bank" class="open-info">未知</div>
                         </div>
                         <div class="client-open fr">
                             <div class="open-name">沪A最低佣金</div>
-                            <div class="open-info">3320.00</div>
+                            <div id="account_commission" class="open-info">0.00</div>
                         </div>
                     </div>
                     <!-- 资产信息 -->
@@ -93,42 +81,6 @@
                         <i class="icon iconfont js-show-list fr active">&#xe67f;</i>
                     </div>
                     <div class="client-list-wrap">
-                        <div class="client-list nobl">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list nobr">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list nobl">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list nobr">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list nobl">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
-                        <div class="client-list nobr">
-                            <p>二级市值</p>
-                            <p class="red">982,223,11</p>
-                        </div>
                     </div>
                     <div class="client-chart-wrap">
                         <canvas id="chart-area" style="width: 100%;height: 150px" />
@@ -138,11 +90,11 @@
                     <div class="client-fx-wrap">
                         <div class="col-50 fl">
                             <span class="title blue"><i class="icon iconfont">&#xe638;</i>风险承受</span>
-                            <span class="content">相对积极型</span>
+                            <span id="risk-category" class="content">未知</span>
                         </div>
                         <div class="col-50 fr nobr">
                             <span class="title blue"><i class="icon iconfont">&#xe645;</i>测评到期日期</span>
-                            <span class="content">2016-09-22</span>
+                            <span id="risk-expire" class="content">未知</span>
                         </div>
                     </div>
                     <div class="split-line"></div>
@@ -180,6 +132,7 @@
     <script type="text/javascript" src="lib/tools/chart.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/tools/bridge.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
     <script type="text/javascript" src="js/controller/page.clientprofile.js"></script>
   </body>
