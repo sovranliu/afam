@@ -13,9 +13,14 @@
     <link rel="stylesheet" href="css/main.css">
 	<script id="template_clients" type="text/template7">
 	{{#each this}}
-<ul class="clearfix">
+<ul class="clearfix" data-im="{{im}}">
 	<li>
-		<div class="item-title">{{name}}</div>
+		<div class="item-title">{{name}}
+		{{#unless msgCount}}
+		{{else}}
+			[{{msgCount}}]
+		{{/unless}}
+		</div>
 	</li>
 	<li>
 		<div class="item-title gray">{{id}}</div>
@@ -70,7 +75,6 @@
             </div>
         </div>
       </div>
-      
     </div>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>

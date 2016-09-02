@@ -12,22 +12,30 @@ $Controller.methods = function() {
 			$$('.searchbar-input').on('input propertychange', function() {
 				_this.refresh($$(this).find('input').val());
 			});
-			
-			// ¼ÓÔØÊý¾Ý
+			// 刷新客户列表
 			_this.refresh('');
 		},
 		refresh:function(key) {
 			var _this = this;
 			$$.getJSON(S_DOMAIN + '/afam/rest/clients', {"key":key}, function(resp) {
 				if(resp.code < 0) {
-					bridge('window').call('tip', resp.msg || '¿Í»§ÁÐ±í·þÎñ´íÎó');
+					bridge('window').call('tip', resp.msg || '客户列表服务错误');
 					return;
+				}
+				var msgMap = bridge('user').call('unreadMessages');
+				for(var i in resp.data) {
+					if(undefined != msgMap[resp.data[i].im]) {
+						resp.data[i].msgCount = msgMap[resp.data[i].im];
+					}
 				}
 				var html = Template7.templates.template_clients(resp.data);
 				$$('.client-list').html(html);
-				console.log($$('.infinite-scroll'));
+				$$('.client-list ul').on('click', function() {
+					var name = $$(this).find('li div').text();
+					var im = $$(this).data('im');
+					bridge('user').call('chat', name, im);
+				});
 				$$('.infinite-scroll').on('infinite', function () {
-					console.log(234);
 					$Controller.methods.load($$('.searchbar-input').val());
 				});
 			});
@@ -38,7 +46,7 @@ $Controller.methods = function() {
 			$$.getJSON(S_DOMAIN + '/afam/rest/clients', {"key":key}, function(resp) {
 				loading = false;
 				if(resp.code < 0) {
-					bridge('window').call('tip', resp.msg || '资讯服务错误');
+					bridge('window').call('tip', resp.msg || '客户列表服务错误');
 					return;
 				}
 				var itemCount = $$('.list-block li').length;
@@ -48,9 +56,19 @@ $Controller.methods = function() {
 					$$('.infinite-scroll-preloader').remove();
 					return;
 				}
-				var html = null;
-				html = Template7.templates.template_news(resp.data);
+				var msgMap = bridge('user').call('unreadMessages');
+				for(var i in resp.data) {
+					if(undefined != msgMap[resp.data[i].im]) {
+						resp.data[i].msgCount = msgMap[resp.data[i].im];
+					}
+				}
+				var html = Template7.templates.template_news(resp.data);
 				$$('.client-list').append(html);
+				$$('.client-list ul').on('click', function() {
+					var name = $$(this).find('li > div').text();
+					var im = $$(this).data('im');
+					bridge('user').call('chat', name, im);
+				});
 			});
 		}
 	};

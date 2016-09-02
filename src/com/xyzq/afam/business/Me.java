@@ -5,20 +5,26 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import com.xyzq.afam.Program;
+import com.xyzq.afam.R;
 import com.xyzq.afam.business.core.IMeListener;
 import com.xyzq.simpson.base.etc.Serial;
 import com.xyzq.simpson.base.json.JSONVisitor;
 import com.xyzq.simpson.base.model.core.IEventable;
+import com.xyzq.simpson.base.type.Map;
 import com.xyzq.simpson.base.type.Table;
+import com.xyzq.simpson.base.type.core.IMap;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.communication.response.JSONResponse;
+import com.xyzq.simpson.carl.etc.GraphicsHelper;
 import com.xyzq.simpson.carl.etc.Version;
 import com.xyzq.simpson.carl.framework.Broadcaster;
 import com.xyzq.simpson.carl.sensor.Reminder;
 import com.xyzq.simpson.sherry.im.Module;
 import com.xyzq.simpson.sherry.im.core.IReactor;
+import com.xyzq.simpson.sherry.im.view.form.SingleChatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 
 /**
@@ -51,6 +57,10 @@ public class Me implements Serializable, IReactor {
 	 * 实例
 	 */
 	public static Me instance = null;
+	/**
+	 * 客户名缓存
+	 */
+	private static IMap<String, String> clientNameCached = null;
 
 
 	/**
@@ -187,6 +197,24 @@ public class Me implements Serializable, IReactor {
 	}
 
 	/**
+	 * 打开聊天对话框
+	 * 
+	 * @param context 上下文
+	 * @param name 客户名
+	 * @param im 客户通信ID
+	 */
+	public void doChat(Context context, String name, String im) {
+		if(null == clientNameCached) {
+			clientNameCached = new Map<String, String>();
+			clientNameCached.put(im, name);
+		}
+		Intent intent = new Intent(context, SingleChatActivity.class);
+		intent.putExtra("selfId", userName);
+		intent.putExtra("remoteId", im);
+		context.startActivity(intent);
+	}
+
+	/**
 	 * 保存
 	 */
 	public void save() throws IOException {
@@ -248,7 +276,13 @@ public class Me implements Serializable, IReactor {
 
 	@Override
 	public String getName(String userId) {
-		return name;
+		if(userId.equalsIgnoreCase(userName)) {
+			return name;
+		}
+		if(null == clientNameCached || null == clientNameCached.get(userId)) {
+			return "客户";
+		}
+		return clientNameCached.get(userId);
 	}
 
 	@Override
@@ -263,7 +297,12 @@ public class Me implements Serializable, IReactor {
 
 	@Override
 	public Bitmap getPhoto(String userId) {
-		return null;
+		if(userId.equalsIgnoreCase(userName)) {
+			return GraphicsHelper.decodeResource(Program.application, R.drawable.icon_me_default);
+		}
+		else {
+			return GraphicsHelper.decodeResource(Program.application, R.drawable.icon_client_default);
+		}
 	}
 
 	@Override
