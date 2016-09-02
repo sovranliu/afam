@@ -18,7 +18,7 @@ canvas {
 .pages{
   margin-bottom: 50px;
 }
-.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap{
+.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.user-data-wrap,.user-data li{
     border-style: solid;
     border-color: #ddd;
     border-image: url(ddata:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
@@ -536,11 +536,11 @@ canvas {
 }
 
 /********** 客户详情页 - 概况 ****************/
-.js-info-view .page-content{
+.js-info-view .page-content,.js-user-view .page-content{
   background:#f1f1f1;
   padding-bottom: 50px;
 }
-.js-info-view .navbar,.js-home-view .navbar{
+.js-info-view .navbar,.js-home-view .navbar,.js-user-view .navbar{
   background: transparent;
 }
 .js-info-view .client-info{
@@ -622,10 +622,10 @@ canvas {
   color: #757575;
   border-width: 1px 0 0 1px;
 }
-.client-list.nobr{
+.nobr{
   border-right: 0;
 }
-.client-list.nobl{
+.nobl{
   border-left: 0;
 }
 .js-info-view .client-list p,.js-gl-view .client-list p{
@@ -677,6 +677,59 @@ canvas {
 /************* 盈亏 **********/
 .js-gl-view .client-chart-wrap{
   display: block;
+}
+/*************** 我的 *******/
+.js-user-view .user-info{
+  overflow: hidden;
+  width: 100%;
+  padding: 21% 0;
+  background: url('../image/profile_bg.jpg') 0 0 no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-size: 12px;
+}
+.user-info .user-photo{
+  text-align: center;
+}
+.user-info .user-photo img{
+  width: 50px;
+  margin:0 auto;
+}
+.user-data-wrap{
+  background: #fff;
+  border-width:0 0 1px 0;
+}
+.user-data{
+  background: #fff;
+  display: -webkit-flex;
+  text-align: center;
+  color: #999;
+}
+.user-data li{
+  font-size: 12px;
+  padding-top:10px;
+  flex:1;
+  border-width: 1px 0 0 1px;
+}
+.user-data li span{
+  display: block;
+  padding-bottom: 3px;
+}
+.user-data li>span:first-child{
+  font-size: 16px;
+}
+.user-list{
+  color: #757575;
+  background: #fff;
+}
+.user-list .item-media+.item-inner{
+  margin-left: 0
+}
+.user-list .item-media{
+  min-width: 10px
+}
+.user-list .item-media i{
+  font-size: 18px;
 }
 .animated {
   -webkit-animation-duration: 1s;
