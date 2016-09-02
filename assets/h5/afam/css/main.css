@@ -585,6 +585,7 @@ canvas {
 }
 .js-info-view .client-amount span{
   font-size: 18px;
+  font-weight: bold;
 }
 .js-info-view .client-other{
   overflow: hidden;

@@ -67,6 +67,7 @@ public class Tools {
 		imageView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			@Override
 			public void onGlobalLayout() {
+				Logger.d("Tools.onGlobalLayout()");
 				if(null == alertDialog) {
 					return;
 				}
@@ -76,16 +77,18 @@ public class Tools {
 				imgIcon.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 				// 图标Y轴旋转
 				Rotate3dAnimation rotate3dAnimation = new Rotate3dAnimation(0f, 360f, imgIcon.getWidth() / 2, imgIcon.getHeight() / 2, 0.0f, true);  
-				rotate3dAnimation.setDuration(1000);
+				rotate3dAnimation.setDuration(1200);
 				rotate3dAnimation.setFillAfter(true);
 				rotate3dAnimation.setInterpolator(new LinearInterpolator());
 				rotate3dAnimation.setRepeatCount(Animation.INFINITE);
+				imgIcon.clearAnimation();
 				imgIcon.startAnimation(rotate3dAnimation);  
 		        // 外环中心旋转
 				RotateAnimation rotateAnimation = new RotateAnimation(360f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f); 
-				rotateAnimation.setDuration(1000);
+				rotateAnimation.setDuration(1200);
 				rotateAnimation.setRepeatCount(Animation.INFINITE);
 				rotateAnimation.setInterpolator(new LinearInterpolator());
+				imgCircle.clearAnimation();
 				imgCircle.startAnimation(rotateAnimation);
 			}
 		});
@@ -99,7 +102,7 @@ public class Tools {
 	 */
 	public static void hideLoading() {
 		if(null != alertDialog) {
-			alertDialog.cancel();
+			alertDialog.dismiss();
 		}
 		alertDialog = null;
 	}

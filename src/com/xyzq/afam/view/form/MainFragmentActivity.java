@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.RunTime;
@@ -74,12 +75,12 @@ public class MainFragmentActivity extends FragmentEx {
 	                browser.resumeTimers();
 	                return true;
 	            }
-				else if(url.startsWith("new://")) {						
+				else if(url.startsWith("new://")) {
+					browser.pauseTimers();
+					browser.resumeTimers();					
 					Intent intent = new Intent(MainFragmentActivity.this.getActivity(), LogicActivity.class);
 					intent.putExtra("url", url.substring("new://".length()));
 					startActivity(intent);
-					browser.pauseTimers();
-					browser.resumeTimers();
 	                return true;
 				}
 	            return super.shouldOverrideUrlLoading(view, url);
@@ -87,9 +88,10 @@ public class MainFragmentActivity extends FragmentEx {
 			@Override
 			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
 				super.onReceivedError(view, errorCode, description, failingUrl);
-				browser.loadUrl("about:blank");
+				// browser.loadUrl("about:blank");
+				Toast.makeText(MainFragmentActivity.this.getActivity(), description, Toast.LENGTH_LONG).show();
 			}
-			@Override 
+			@Override
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
 				Controller.doDelay(new Runnable() {

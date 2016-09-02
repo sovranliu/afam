@@ -3,8 +3,10 @@ package com.xyzq.afam.view.form;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.RunTime;
@@ -53,7 +55,7 @@ public class LogicActivity extends ActivityEx {
 		browser.inject("user", User.class);
 		browser.inject("window", new Window(this));
 		browser.inject("recorder", Recorder.class);
-		Tools.displayLoading(this, null);
+		Tools.displayLoading(LogicActivity.this, null);
 		browser.loadUrl(this.getIntent().getStringExtra("url"));
 		browser.setWebViewClient(new WebViewClient() {
 			@Override
@@ -78,18 +80,21 @@ public class LogicActivity extends ActivityEx {
 			@Override
 			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
 				super.onReceivedError(view, errorCode, description, failingUrl);
-				browser.loadUrl("about:blank");
+				// browser.loadUrl("about:blank");
+				Toast.makeText(LogicActivity.this, description, Toast.LENGTH_LONG).show();
+				LogicActivity.this.finish();
 			}
-			@Override 
+			@Override
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
+				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 				Controller.doDelay(new Runnable() {
 					@Override
 					public void run() {
 						Tools.hideLoading();
+						browser.setVisibility(View.VISIBLE);
 					}
-				}, 1000);
-				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
+				}, 500);
 			}
 		});
 	}
