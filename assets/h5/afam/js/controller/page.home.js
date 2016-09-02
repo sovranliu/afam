@@ -22,12 +22,14 @@ $Controller.methods = function() {
 			this.loadNews();
 		},
 		initNav:function() {
-			$$(window).onscroll = function(){
-				console.log(this);
-				var top = $$(document).scrollTop();
-			$Controller.views.main.hideNavbar();
-
-			}
+			$$('.main-content').on('scroll', function(){
+				var top = $$(this).scrollTop();
+				if(top >= 50){
+					$Controller.views.main.hideNavbar()
+				}else{
+					$Controller.views.main.showNavbar()
+				}
+			});
 		},
 		swipe:function(wrap,pagination) {
 			var options = {

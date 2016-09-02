@@ -47,6 +47,9 @@ canvas {
 .list-block .item-text{
   font-size: 12px;
 }
+.navbar.navbar-hidden~.toolbar:not(.messagebar){
+  transform: none;
+}
 .welcomescreen-container .welcomescreen-text a{
   color: #fff;
   text-decoration: underline;
@@ -220,13 +223,13 @@ canvas {
 }
 /*slide*/
 .adver-wrap .swiper-slide{
-  height: 100px;
+  height: 150px;
   background: #999;
 }
 .adver-wrap .swiper-slide img{
   background-size: cover;
   width: 100%;
-  height: 100px;
+  height: 150px;
 }
 .adver-wrap .swiper-pagination-bullet-active{
   background: #fff;
@@ -537,7 +540,7 @@ canvas {
   background:#f1f1f1;
   padding-bottom: 50px;
 }
-.js-info-view .navbar{
+.js-info-view .navbar,.js-home-view .navbar{
   background: transparent;
 }
 .js-info-view .client-info{

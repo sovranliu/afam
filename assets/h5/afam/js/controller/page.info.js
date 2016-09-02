@@ -8,8 +8,19 @@ $Controller.methods = function() {
 	var loading = false;
 	return {
 		prepare:function() {
+			this.initNav();
 			this.initPieChart();
 			this.switchTab();
+		},
+		initNav:function() {
+			$$('.page-content').on('scroll', function(){
+				var top = $$(this).scrollTop();
+				if(top >= 50){
+					$Controller.views.main.hideNavbar()
+				}else{
+					$Controller.views.main.showNavbar()
+				}
+			});
 		},
 		initPieChart:function() {
 			var randomScalingFactor = function() {
