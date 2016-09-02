@@ -22,9 +22,8 @@ $Controller.methods = function() {
 			this.loadNews();
 		},
 		initNav:function() {
-			console.log($$(window))
-			window.onscroll = function(){
-				console.log(window);
+			$$(window).onscroll = function(){
+				console.log(this);
 				var top = $$(document).scrollTop();
 			$Controller.views.main.hideNavbar();
 
