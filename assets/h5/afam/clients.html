@@ -13,22 +13,24 @@
     <link rel="stylesheet" href="css/main.css">
 	<script id="template_clients" type="text/template7">
 	{{#each this}}
-<ul class="clearfix" data-im="{{im}}">
-	<li>
-		<div class="item-title">{{name}}
-		{{#unless msgCount}}
-		{{else}}
-			[{{msgCount}}]
-		{{/unless}}
-		</div>
-	</li>
-	<li>
-		<div class="item-title gray">{{id}}</div>
-	</li>
-	<li>
-		<div class="item-title red">{{amount}}</div>
-	</li>
-</ul>
+<a href="clientprofile.html?aid={{accountId}}" class="external" target="_blank">
+	<ul class="clearfix" data-im="{{im}}">
+		<li>
+			<div class="item-title">{{name}}
+			{{#unless msgCount}}
+			{{else}}
+				[{{msgCount}}]
+			{{/unless}}
+			</div>
+		</li>
+		<li>
+			<div class="item-title gray">{{accountId}}</div>
+		</li>
+		<li>
+			<div class="item-title red">{{amount}}</div>
+		</li>
+	</ul>
+<a>
 	{{/each}}
 	</script>
   </head>
@@ -81,6 +83,6 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="lib/tools/bridge.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
-    <script type="text/javascript" src="js/controller/page.client.js"></script>
+    <script type="text/javascript" src="js/controller/page.clients.js"></script>
   </body>
 </html>

@@ -21,7 +21,7 @@
                 android:id="@+id/main_fragment_client"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:tag="afam/client.html" />
+                android:tag="afam/clients.html" />
             <fragment android:name="com.xyzq.afam.view.form.MainFragmentActivity"
                 android:id="@+id/main_fragment_query"
                 android:layout_width="match_parent"

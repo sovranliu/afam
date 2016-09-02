@@ -1,4 +1,4 @@
-// home page controller
+// client list page controller
 
 $Controller.bind = function() {
 	$Controller.methods.prepare();
@@ -30,11 +30,6 @@ $Controller.methods = function() {
 				}
 				var html = Template7.templates.template_clients(resp.data);
 				$$('.client-list').html(html);
-				$$('.client-list ul').on('click', function() {
-					var name = $$(this).find('li div').text();
-					var im = $$(this).data('im');
-					bridge('user').call('chat', name, im);
-				});
 				$$('.infinite-scroll').on('infinite', function () {
 					$Controller.methods.load($$('.searchbar-input').val());
 				});
@@ -62,13 +57,8 @@ $Controller.methods = function() {
 						resp.data[i].msgCount = msgMap[resp.data[i].im];
 					}
 				}
-				var html = Template7.templates.template_news(resp.data);
+				var html = Template7.templates.template_clients(resp.data);
 				$$('.client-list').append(html);
-				$$('.client-list ul').on('click', function() {
-					var name = $$(this).find('li > div').text();
-					var im = $$(this).data('im');
-					bridge('user').call('chat', name, im);
-				});
 			});
 		}
 	};
