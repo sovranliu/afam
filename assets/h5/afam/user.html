@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>AFA - 我的</title>
+    <title>AFA</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
@@ -17,41 +17,109 @@
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-      <div class="content-block">
-        <p>Left panel content goes here</p>
-      </div>
-    </div>
-    <!-- Right panel with cover effect-->
-    <div class="panel panel-right panel-cover">
-      <div class="content-block">
-        <p>Right panel content goes here</p>
-      </div>
-    </div>
+  
     <!-- Views-->
-    <div class="views">
-      <!-- Your main view, should have "view-main" class-->
+    <div class="views js-user-view">
       <div class="view view-main">
-        <!-- Top Navbar-->
         <div class="navbar">
           <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only">
+                <i class="icon icon-back"></i>
+              </a>
+            </div>
             <!-- We have home navbar without left link-->
             <div class="center">我的</div>
+            <div class="right">
+              <a href="#" class="link icon-only">
+                <i class="icon iconfont">&#xe654;</i>
+              </a>
+            </div>
           </div>
         </div>
-        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-through toolbar-through">
-          <!-- Page, data-page contains page name-->
-          <div data-page="index" class="page navbar-fixed">
-          </div>
+            <div data-page="clientDetailInfo" class="page">
+                <div class="page-content">
+                    <!-- 个人信息 -->
+                    <div class="user-info">
+                        <div class="user-photo">
+                            <img src="image/user.png" alt="">
+                            <p class="user-name">李莉</p>
+                        </div>
+                    </div>
+                    <div class="content-block-title">个人服务概况</div>
+                    <div class="user-data-wrap">
+                      <ul class="user-data">
+                        <li class="data-list">
+                          <span class="blue">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                        <li class="data-list">
+                          <span class="red">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                        <li class="data-list">
+                          <span class="red">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                        <li class="data-list">
+                          <span class="red">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                      </ul>
+                      <ul class="user-data">
+                        <li class="data-list">
+                          <span class="orange">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                        <li class="data-list">
+                          <span class="red">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                        <li class="data-list">
+                          <span class="red">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                        <li class="data-list">
+                          <span class="red">158</span>
+                          <span>服务客户数量</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="split-line"></div>
+                    <div class="user-list list-block">
+                      <ul>
+                        <li class="item-content">
+                          <div class="item-media"><i class="icon iconfont blue">&#xe60f;</i></div>
+                          <div class="item-inner">
+                            <div class="item-title">关于版本</div>
+                          </div>
+                        </li>
+                        <li class="item-content">
+                          <div class="item-media"><i class="icon iconfont green">&#xe64c;</i></div>
+                          <div class="item-inner">
+                            <div class="item-title">我要吐槽</div>
+                          </div>
+                        </li>
+                        <li class="item-content">
+                          <div class="item-media"><i class="icon iconfont orange">&#xe60c;</i></div>
+                          <div class="item-inner">
+                            <div class="item-title">新手引导</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
+      
     </div>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="lib/tools/chart.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/page.js"></script>
-    <script type="text/javascript" src="js/controller/page.user.js"></script>
+    <script type="text/javascript" src="js/controller/page.info.js"></script>
   </body>
 </html>

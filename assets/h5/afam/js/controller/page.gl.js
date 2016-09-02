@@ -47,7 +47,7 @@ $Controller.methods = function() {
 	                }]
 	            },
 	            options: {
-	                responsive: false,
+	                responsive: true,
 	                legend: {
 	                    position: 'bottom',
 	                },
