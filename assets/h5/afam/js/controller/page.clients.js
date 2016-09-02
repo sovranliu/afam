@@ -30,12 +30,14 @@ $Controller.methods = function() {
 				}
 				var html = Template7.templates.template_clients(resp.data);
 				$$('.client-list').html(html);
+				_this.adjustLinks();
 				$$('.infinite-scroll').on('infinite', function () {
 					$Controller.methods.load($$('.searchbar-input').val());
 				});
 			});
 		},
 		load:function(key) {
+			var _this = this;
 			if (loading) return;
 			loading = true;
 			$$.getJSON(S_DOMAIN + '/afam/rest/clients', {"key":key}, function(resp) {
@@ -59,7 +61,22 @@ $Controller.methods = function() {
 				}
 				var html = Template7.templates.template_clients(resp.data);
 				$$('.client-list').append(html);
+				_this.adjustLinks();
 			});
+		},
+		adjustLinks:function() {
+			var allLinks = document.getElementsByTagName('a');
+			if (allLinks) {
+				var i;
+				for (i=0; i < allLinks.length; i++) {
+					var link = allLinks[i];
+					var target = link.getAttribute('target');
+					if (target && target == '_blank') {
+						link.setAttribute('target','_self');
+						link.href = 'new://'+link.href;
+					}
+				}
+			}
 		}
 	};
 }();
