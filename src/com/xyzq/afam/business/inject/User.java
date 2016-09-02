@@ -1,7 +1,7 @@
 package com.xyzq.afam.business.inject;
 
-import com.xyzq.afam.Program;
 import com.xyzq.afam.business.Me;
+import com.xyzq.afam.business.RunTime;
 import com.xyzq.simpson.base.json.JSONNumber;
 import com.xyzq.simpson.base.json.JSONObject;
 import com.xyzq.simpson.base.json.core.IJSON;
@@ -45,6 +45,6 @@ public class User {
 	 * @param im 客户通信工具
 	 */
 	public static void chat(String name, String im) {
-		Me.instance.doChat(Program.application, name, im);
+		Me.instance.doChat(RunTime.currentActivity, name, im);
 	}
 }

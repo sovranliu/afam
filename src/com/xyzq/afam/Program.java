@@ -3,7 +3,6 @@ package com.xyzq.afam;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.config.Configuration;
 import com.xyzq.simpson.carl.storage.Storage;
-import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.sherry.im.Module;
 
 import android.app.Application;
@@ -40,10 +39,6 @@ public class Program extends Application {
 	 * 程序引用
 	 */
 	public static Application application = null;
-	/**
-	 * 当前的浏览器
-	 */
-	public static BridgeWebView currentBrowser = null;
 
 	
 	/**

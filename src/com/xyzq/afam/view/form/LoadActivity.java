@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.xyzq.afam.Program;
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.Me;
+import com.xyzq.afam.business.RunTime;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Logger;
 import com.xyzq.simpson.base.model.core.IEventable;
@@ -53,9 +53,9 @@ public class LoadActivity extends ActivityEx {
 	@Override
 	public void onResume() {
 		super.onResume();
-		Program.currentBrowser = webIntroduce;
+		RunTime.refresh(this, webIntroduce);
 	}
-	
+
 	/**
 	 * 准备
 	 */

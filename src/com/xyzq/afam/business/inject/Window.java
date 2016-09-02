@@ -2,7 +2,7 @@ package com.xyzq.afam.business.inject;
 
 import java.util.ArrayList;
 
-import com.xyzq.afam.Program;
+import com.xyzq.afam.business.RunTime;
 import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.base.json.JSONArray;
 import com.xyzq.simpson.base.json.JSONString;
@@ -50,7 +50,7 @@ public class Window {
 		GeneralHelper.showSelector(activity, new IEventable<Integer>() {
 			@Override
 			public void on(Integer index) {
-				Program.currentBrowser.invoke(0, index);
+				RunTime.currentBrowser.invoke(0, index);
 			}
 		}, list.toArray(new String[0]));
 	}

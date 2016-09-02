@@ -7,14 +7,15 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.xyzq.afam.Program;
 import com.xyzq.afam.R;
+import com.xyzq.afam.business.RunTime;
 import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Tools;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.carl.communication.Networking;
+import com.xyzq.simpson.carl.etc.Controller;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.FragmentEx;
 import com.xyzq.simpson.marge.Client;
@@ -46,7 +47,7 @@ public class MainFragmentActivity extends FragmentEx {
 	@Override
 	public void onResume() {
 		super.onResume();
-		Program.currentBrowser = browser;
+		RunTime.refresh(this.getActivity(), browser);
 	}
 
 	/**
@@ -91,7 +92,12 @@ public class MainFragmentActivity extends FragmentEx {
 			@Override 
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
-				Tools.hideLoading();
+				Controller.doDelay(new Runnable() {
+					@Override
+					public void run() {
+						Tools.hideLoading();
+					}
+				}, 1000);
 				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 			}
 		});

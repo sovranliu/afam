@@ -206,8 +206,8 @@ public class Me implements Serializable, IReactor {
 	public void doChat(Context context, String name, String im) {
 		if(null == clientNameCached) {
 			clientNameCached = new Map<String, String>();
-			clientNameCached.put(im, name);
 		}
+		clientNameCached.put(im, name);
 		Intent intent = new Intent(context, SingleChatActivity.class);
 		intent.putExtra("selfId", userName);
 		intent.putExtra("remoteId", im);
@@ -298,10 +298,14 @@ public class Me implements Serializable, IReactor {
 	@Override
 	public Bitmap getPhoto(String userId) {
 		if(userId.equalsIgnoreCase(userName)) {
-			return GraphicsHelper.decodeResource(Program.application, R.drawable.icon_me_default);
+			Bitmap bitmap = GraphicsHelper.decodeResource(Program.application, R.drawable.icon_me_default);
+			bitmap = GraphicsHelper.makeCycleImage(bitmap, 180, 180);
+			return GraphicsHelper.makeImageRing(bitmap, Program.application.getResources().getColor(R.color.main), 1);
 		}
 		else {
-			return GraphicsHelper.decodeResource(Program.application, R.drawable.icon_client_default);
+			Bitmap bitmap = GraphicsHelper.decodeResource(Program.application, R.drawable.icon_client_default);
+			bitmap = GraphicsHelper.makeCycleImage(bitmap, 180, 180);
+			return GraphicsHelper.makeImageRing(bitmap, Program.application.getResources().getColor(R.color.main), 1);
 		}
 	}
 
