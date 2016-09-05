@@ -694,6 +694,9 @@ canvas {
   padding:0 10px;
   border-left: #eee solid 1px;
 }
+.js-user-view .content-block-title i.js-refresh{
+  padding:0 0 0 10px;
+}
 .js-info-view .content-block-title i.active{
   color: #44a0ea;
 }
@@ -729,6 +732,14 @@ canvas {
 .user-info .user-photo img{
   width: 50px;
   margin:0 auto;
+}
+.user-info .user-name,.user-info .user-time{
+  font-size: 14px;
+  margin:5px 0;
+}
+.user-info .user-time{
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
 }
 .user-data-wrap{
   background: #fff;
