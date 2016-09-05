@@ -74,6 +74,11 @@ canvas {
 .modal-buttons.modal-buttons-vertical .modal-button{
   text-align: center;
 }
+.badge{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  padding:0 7px;
+  border-radius: 100%;
+}
 .orange{
   color: #ff885a;
 }
@@ -465,11 +470,11 @@ canvas {
 }
 .list-block .item-title{
   margin-left: 3px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .list-block .item-after{
   line-height: 22px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .list-block .audio-wrap{
   background: #ebf4fe;
@@ -914,6 +919,41 @@ canvas {
     -moz-transform : translate3d(500%, 0, 0);
     -ms-transform : translate3d(500%, 0, 0);
     transform : translate3d(500%, 0, 0)
+}
+/**************** MOTLIST *******************/
+.js-motlist-view .content-block{
+  padding: 10px 16px;
+    overflow: hidden;
+    color: #777;
+}
+.js-motlist-view .accordion-item img{
+  width: 30px;
+  height: 30px;
+}
+
+/**************** notify *******************/
+.js-notify-view .page{
+  background: #f1f1f1
+}
+.js-notify-view .card{
+  border:#ddd solid 1px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+.js-notify-view .card-header{
+  display: block;
+}
+.js-notify-view .card-header:after{
+  background-color: transparent;
+}
+.js-notify-view .card-header span{
+  display: block;
+}
+.js-notify-view .card-header span.gray{
+  font-size: 12px;
+}
+.js-notify-view .card-content-inner{
+  padding:0 16px 10px;
 }
 .animated {
   -webkit-animation-duration: 1s;
