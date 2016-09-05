@@ -720,7 +720,7 @@ canvas {
 .js-user-view .user-info{
   overflow: hidden;
   width: 100%;
-  padding: 21% 0;
+  padding: 15% 0;
   background: url('../image/profile_bg.jpg') 0 0 no-repeat;
   background-size: cover;
   color: #fff;
