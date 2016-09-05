@@ -1,4 +1,4 @@
-// query page controller
+// user page controller
 
 $Controller.bind = function() {
 	
