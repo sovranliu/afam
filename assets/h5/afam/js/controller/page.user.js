@@ -19,6 +19,7 @@ $Controller.methods = function() {
 					return;
 				}
 				var data = resp.data;
+				var isFirst = (''==$$('.user-photo img').attr('src'));
 				$$('.user-photo img').attr('src', data.head);
 				$$('p.user-name').html(data.name);
 				$$('.user-time span').html(data.lastLoginTime);
@@ -38,7 +39,9 @@ $Controller.methods = function() {
 					}
 				}
 				$$('.user-data-wrap').html(html);
-				bridge('window').call('tip', '刷新成功');
+				if(!isFirst) {
+					bridge('window').call('tip', '刷新成功');
+				}
 			});
 		}
 	};
