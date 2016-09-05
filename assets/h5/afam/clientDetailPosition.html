@@ -19,65 +19,53 @@
     <div class="panel-overlay"></div>
   
     <!-- Views-->
-    <div class="views js-info-view">
+    <div class="views js-position-view">
       <div class="view view-main">
         <div class="navbar">
           <div class="navbar-inner">
-            <div class="left">
-              <a href="#" class="link icon-only">
-                <i class="icon icon-back"></i>
-              </a>
-            </div>
-            <!-- We have home navbar without left link-->
-            <div class="center">张三</div>
-            <div class="right">
-              <a href="#" class="link icon-only">
-                <i class="icon iconfont">&#xe63c;</i>
-              </a>
+            <div class="center">
+              <!-- 导航栏中的按键排控制器 -->
+              <div class="buttons-row">
+                <!-- 关联到第一个tab的链接，默认激活 -->
+                <a href="#tab1" class="tab-link active button">股票</a>
+                <!-- 关联到第二个tab的链接 -->
+                <a href="#tab2" class="tab-link button">基金</a>
+                <!-- 关联到第三个tab的链接 -->
+                <a href="#tab3" class="tab-link button">理财</a>
+                <i class="cui-tab-scrollbar cui-tabnum3"></i>
+              </div>
             </div>
           </div>
         </div>
-        <div class="pages navbar-through toolbar-through">
-            <div data-page="clientDetailInfo" class="page">
-                <div class="page-content">
-                  <div class="content-block">
-                    <!-- tabs控制面板 -->
-                    <div class="buttons-row">
-                      <!-- 关联到第一个tab, 默认激活 -->
-                      <a href="#tab1" class="tab-link active button">Tab 1</a>
-                      <!-- 关联到第二个tab -->
-                      <a href="#tab2" class="tab-link button">Tab 2</a>
-                      <!-- 关联到第三个tab -->
-                      <a href="#tab3" class="tab-link button">Tab 3</a>
-                    </div>
-                  </div>
-                  <!-- Tabs, 标签内容区容器 -->
-                  <div class="tabs">
-                    <!-- Tab 1, 默认激活 -->
-                    <div id="tab1" class="tab active">
-                      <div class="content-block">
-                        <p>This is tab 1 content</p>
-                        ...
-                      </div>
-                    </div>
-                    <!-- Tab 2 -->
-                    <div id="tab2" class="tab">
-                      <div class="content-block">
-                        <p>This is tab 2 content</p>
-                        ...
-                      </div>
-                    </div>
-                    <!-- Tab 3 -->
-                    <div id="tab3" class="tab">
-                      <div class="content-block">
-                        <p>This is tab 3 content</p>
-                        ...
-                      </div>
-                    </div>
-                  </div>
+        <div class="pages">
+          <div class="page navbar-fixed">
+            <!-- Tabs, tabs容器, page-content为tabs -->
+            <div class="page-content tabs">
+              <div class="split-line"></div>
+              <div class="content-block-title">持仓详情</div>
+              <!-- Tab 1，默认激活 -->
+              <div id="tab1" class="tab active">
+                <div class="content-block">
                 </div>
+              </div>
+              <!-- Tab 2 -->
+              <div id="tab2" class="tab">
+                <div class="content-block">
+                  <p>This is tab 2 content</p>
+                  2...
+                </div>
+              </div>
+              <!-- Tab 3 -->
+              <div id="tab3" class="tab">
+                <div class="content-block">
+                  <p>This is tab 3 content</p>
+                  3...
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+
         <div class="toolbar tabbar-labels">
             <div class="toolbar-inner">
                 <a href="#view-1" class="tab-link">

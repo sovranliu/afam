@@ -167,6 +167,28 @@ canvas {
 .navbar-fixed .page-content{
   padding-top: 48px;
 }
+.js-home-view .navbar i{
+    text-align: center;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    border: #fff solid 1px;
+    border-radius: 100%;
+    background: #fff;
+}
+.js-home-view .js-recorder:after{
+  content: '';
+  height: 12px;
+  border-left: #fff 1px solid;
+  position: absolute;
+  top: 0;
+  left:28px;
+}
+.js-home-view .js-mark:after{
+  content: ''
+  
+}
+
 /*toolbar 覆盖*/
 .toolbar{
   border-top: #eee solid 1px;
@@ -359,10 +381,10 @@ canvas {
 /*列表*/
 .content-block-title{
   background:#fff;
-  font-size: 14px;
-  padding:8px 10px;
+  font-size: 13px;
+  padding:7px 10px;
   margin:0;
-  border-left: #44a0ea solid 2px;
+  border-left: #44a0ea solid 3px;
 }
 .info-wrap{
   padding-bottom: 56px;
@@ -667,7 +689,7 @@ canvas {
   display: none;
 }
 
-.js-info-view .content-block-title i{
+.js-info-view .content-block-title i,.js-user-view .content-block-title i{
   font-size: 18px;
   padding:0 10px;
   border-left: #eee solid 1px;
@@ -678,6 +700,18 @@ canvas {
 /************* 盈亏 **********/
 .js-gl-view .client-chart-wrap{
   display: block;
+}
+/*********** 持仓 ************/
+.js-position-view .buttons-row .tab-link{
+  margin:0;
+  border-radius: 0;
+  color: rgba(255,255,255,0.7)!important
+}
+.js-position-view .buttons-row .tab-link.active{
+  color: #fff!important;
+}
+.js-position-view .content-block{
+  margin: 0;
 }
 /*************** 我的 *******/
 .js-user-view .user-info{
@@ -727,10 +761,148 @@ canvas {
   margin-left: 0
 }
 .user-list .item-media{
+  padding-right: 5px;
   min-width: 10px
 }
 .user-list .item-media i{
-  font-size: 18px;
+  font-size: 16px;
+}
+.buttons-row {
+    display : -webkit-box;
+    display : -moz-box;
+    display : -ms-flexbox;
+    display : -webkit-flex;
+    display : flex;
+    height : 43px;
+    line-height : 43px;
+    background-color : transparent;
+    color : #666;
+    font-size : 15px;
+    position : relative;
+    display : table\9;
+    width : 100%
+}
+.buttons-row a {
+    text-align : center;
+    -webkit-box-flex : 1;
+    -moz-box-flex : 1;
+    -webkit-flex : 1;
+    -ms-flex : 1;
+    flex : 1;
+    display : table-cell\9
+}
+.cui-tabnum2 {
+    width : 50%
+}
+.cui-tabnum3 {
+  width: 33.33%;
+}
+.cui-tabnum4 {
+    width : 25%
+}
+.cui-tabnum5 {
+    width : 20%
+}
+.cui-tabnum6 {
+    width : 16.66666%
+}
+.buttons-row a.active {
+    color : #fff
+}
+.buttons-row .cui-tab-scrollbar {
+    position : absolute;
+    left : 0;
+    height : 4px;
+    bottom : -1px;
+    background-color : #fff;
+    -webkit-transition : -webkit-transform 300ms ease-in-out;
+    -moz-transition : -moz-transform 300ms ease-in-out;
+    -ms-transition : -ms-transform 300ms ease-in-out;
+    transition : transform 300ms ease-in-out;
+    z-index : -1
+}
+.buttons-row .cui-tab-scrollbar:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.buttons-row a.active ~ .cui-tab-scrollbar {
+    z-index : 2
+}
+.buttons-row a:nth-of-type(1).active ~ .cui-tab-scrollbar {
+    -webkit-transform : translate3d(0, 0, 0);
+    -moz-transform : translate3d(0, 0, 0);
+    -ms-transform : translate3d(0, 0, 0);
+    transform : translate3d(0, 0, 0)
+}
+.buttons-row a:nth-of-type(2).active ~ .cui-tab-scrollbar {
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform : translate3d(100%, 0, 0);
+    -ms-transform : translate3d(100%, 0, 0);
+    transform : translate3d(100%, 0, 0)
+}
+.buttons-row a:nth-of-type(3).active ~ .cui-tab-scrollbar {
+    -webkit-transform : translate3d(200%, 0, 0);
+    -moz-transform : translate3d(200%, 0, 0);
+    -ms-transform : translate3d(200%, 0, 0);
+    transform : translate3d(200%, 0, 0)
+}
+.buttons-row a:nth-of-type(4).active ~ .cui-tab-scrollbar {
+    -webkit-transform : translate3d(300%, 0, 0);
+    -moz-transform : translate3d(300%, 0, 0);
+    -ms-transform : translate3d(300%, 0, 0);
+    transform : translate3d(300%, 0, 0)
+}
+.buttons-row a:nth-of-type(5).active ~ .cui-tab-scrollbar {
+    -webkit-transform : translate3d(400%, 0, 0);
+    -moz-transform : translate3d(400%, 0, 0);
+    -ms-transform : translate3d(400%, 0, 0);
+    transform : translate3d(400%, 0, 0)
+}
+.buttons-row a:nth-of-type(6).active ~ .cui-tab-scrollbar {
+    -webkit-transform : translate3d(500%, 0, 0);
+    -moz-transform : translate3d(500%, 0, 0);
+    -ms-transform : translate3d(500%, 0, 0);
+    transform : translate3d(500%, 0, 0)
+}
+.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum2 {
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform : translate3d(100%, 0, 0);
+    -ms-transform : translate3d(100%, 0, 0);
+    transform : translate3d(100%, 0, 0)
+}
+.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum3 {
+    -webkit-transform : translate3d(200%, 0, 0);
+    -moz-transform : translate3d(200%, 0, 0);
+    -ms-transform : translate3d(200%, 0, 0);
+    transform : translate3d(200%, 0, 0)
+}
+.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum4 {
+    -webkit-transform : translate3d(300%, 0, 0);
+    -moz-transform : translate3d(300%, 0, 0);
+    -ms-transform : translate3d(300%, 0, 0);
+    transform : translate3d(300%, 0, 0)
+}
+.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum5 {
+    -webkit-transform : translate3d(400%, 0, 0);
+    -moz-transform : translate3d(400%, 0, 0);
+    -ms-transform : translate3d(400%, 0, 0);
+    transform : translate3d(400%, 0, 0)
+}
+.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum6 {
+    -webkit-transform : translate3d(500%, 0, 0);
+    -moz-transform : translate3d(500%, 0, 0);
+    -ms-transform : translate3d(500%, 0, 0);
+    transform : translate3d(500%, 0, 0)
 }
 .animated {
   -webkit-animation-duration: 1s;
