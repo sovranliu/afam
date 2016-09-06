@@ -35,6 +35,11 @@ canvas {
   border-radius: 10px;
   color: #0da6ec;
 }
+.list-block textarea{
+  font-size: 15px;
+  line-height: inherit;
+  padding-top: 0;
+}
 .list-block li.media-item .item-link .item-inner, .list-block.media-list .item-link .item-inner{
   overflow: hidden;
 }
@@ -181,6 +186,10 @@ canvas {
     border-radius: 100%;
     background: #fff;
 }
+.js-home-view .navbar img{
+  width: 25px;
+  height: 25px;
+}
 .js-home-view .js-recorder:after{
   content: '';
   height: 12px;
@@ -190,8 +199,12 @@ canvas {
   left:28px;
 }
 .js-home-view .js-mark:after{
-  content: ''
-  
+  content: '';
+  height: 12px;
+  border-left: #fff 1px solid;
+  position: absolute;
+  top: 0;
+  left:28px;
 }
 
 /*toolbar 覆盖*/
@@ -783,7 +796,7 @@ canvas {
 .user-list .item-media i{
   font-size: 16px;
 }
-.buttons-row {
+.client-view-wrap .buttons-row {
     display : -webkit-box;
     display : -moz-box;
     display : -ms-flexbox;
@@ -798,7 +811,7 @@ canvas {
     display : table\9;
     width : 100%
 }
-.buttons-row a {
+.client-view-wrap .buttons-row a {
     text-align : center;
     -webkit-box-flex : 1;
     -moz-box-flex : 1;
@@ -822,10 +835,10 @@ canvas {
 .cui-tabnum6 {
     width : 16.66666%
 }
-.buttons-row a.active {
+.client-view-wrap .buttons-row a.active {
     color : #fff
 }
-.buttons-row .cui-tab-scrollbar {
+.client-view-wrap .buttons-row .cui-tab-scrollbar {
     position : absolute;
     left : 0;
     height : 4px;
@@ -837,7 +850,7 @@ canvas {
     transition : transform 300ms ease-in-out;
     z-index : -1
 }
-.buttons-row .cui-tab-scrollbar:before {
+.client-view-wrap .buttons-row .cui-tab-scrollbar:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -851,70 +864,70 @@ canvas {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.buttons-row a.active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a.active ~ .cui-tab-scrollbar {
     z-index : 2
 }
-.buttons-row a:nth-of-type(1).active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a:nth-of-type(1).active ~ .cui-tab-scrollbar {
     -webkit-transform : translate3d(0, 0, 0);
     -moz-transform : translate3d(0, 0, 0);
     -ms-transform : translate3d(0, 0, 0);
     transform : translate3d(0, 0, 0)
 }
-.buttons-row a:nth-of-type(2).active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a:nth-of-type(2).active ~ .cui-tab-scrollbar {
     -webkit-transform : translate3d(100%, 0, 0);
     -moz-transform : translate3d(100%, 0, 0);
     -ms-transform : translate3d(100%, 0, 0);
     transform : translate3d(100%, 0, 0)
 }
-.buttons-row a:nth-of-type(3).active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a:nth-of-type(3).active ~ .cui-tab-scrollbar {
     -webkit-transform : translate3d(200%, 0, 0);
     -moz-transform : translate3d(200%, 0, 0);
     -ms-transform : translate3d(200%, 0, 0);
     transform : translate3d(200%, 0, 0)
 }
-.buttons-row a:nth-of-type(4).active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a:nth-of-type(4).active ~ .cui-tab-scrollbar {
     -webkit-transform : translate3d(300%, 0, 0);
     -moz-transform : translate3d(300%, 0, 0);
     -ms-transform : translate3d(300%, 0, 0);
     transform : translate3d(300%, 0, 0)
 }
-.buttons-row a:nth-of-type(5).active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a:nth-of-type(5).active ~ .cui-tab-scrollbar {
     -webkit-transform : translate3d(400%, 0, 0);
     -moz-transform : translate3d(400%, 0, 0);
     -ms-transform : translate3d(400%, 0, 0);
     transform : translate3d(400%, 0, 0)
 }
-.buttons-row a:nth-of-type(6).active ~ .cui-tab-scrollbar {
+.client-view-wrap .buttons-row a:nth-of-type(6).active ~ .cui-tab-scrollbar {
     -webkit-transform : translate3d(500%, 0, 0);
     -moz-transform : translate3d(500%, 0, 0);
     -ms-transform : translate3d(500%, 0, 0);
     transform : translate3d(500%, 0, 0)
 }
-.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum2 {
+.client-view-wrap .buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum2 {
     -webkit-transform : translate3d(100%, 0, 0);
     -moz-transform : translate3d(100%, 0, 0);
     -ms-transform : translate3d(100%, 0, 0);
     transform : translate3d(100%, 0, 0)
 }
-.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum3 {
+.client-view-wrap .buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum3 {
     -webkit-transform : translate3d(200%, 0, 0);
     -moz-transform : translate3d(200%, 0, 0);
     -ms-transform : translate3d(200%, 0, 0);
     transform : translate3d(200%, 0, 0)
 }
-.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum4 {
+.client-view-wrap .buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum4 {
     -webkit-transform : translate3d(300%, 0, 0);
     -moz-transform : translate3d(300%, 0, 0);
     -ms-transform : translate3d(300%, 0, 0);
     transform : translate3d(300%, 0, 0)
 }
-.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum5 {
+.client-view-wrap .buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum5 {
     -webkit-transform : translate3d(400%, 0, 0);
     -moz-transform : translate3d(400%, 0, 0);
     -ms-transform : translate3d(400%, 0, 0);
     transform : translate3d(400%, 0, 0)
 }
-.buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum6 {
+.client-view-wrap .buttons-row a:last-of-type.active + .cui-tab-scrollbar.cui-tabnum6 {
     -webkit-transform : translate3d(500%, 0, 0);
     -moz-transform : translate3d(500%, 0, 0);
     -ms-transform : translate3d(500%, 0, 0);
@@ -954,6 +967,12 @@ canvas {
 }
 .js-notify-view .card-content-inner{
   padding:0 16px 10px;
+}
+.btn-submit {
+  background-color: #44a0ea;
+  width: 80%;
+  margin:0 auto;
+  color: #fff;
 }
 .animated {
   -webkit-animation-duration: 1s;
