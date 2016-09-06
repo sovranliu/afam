@@ -108,6 +108,9 @@ canvas {
 .fr{
   float: right;
 }
+.center{
+  text-align: center;
+}
 .clearfix{overflow:auto;_height:1%}
 
 /*# sourceMappingURL=main.css.map */
@@ -967,6 +970,15 @@ canvas {
 }
 .js-notify-view .card-content-inner{
   padding:0 16px 10px;
+}
+/*************** building ****************/
+.js-empty-view .page-content img{
+  width: 150px;
+  margin: 100px auto 0;
+  display: block;
+}
+.js-empty-view .page-content p{
+  font-size: 16px;
 }
 .btn-submit {
   background-color: #44a0ea;
