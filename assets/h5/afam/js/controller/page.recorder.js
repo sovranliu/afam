@@ -5,11 +5,13 @@ $Controller.bind = function() {
 };
 
 $Controller.methods = function() {
+	var tick = 0;
+	var code = 0;
 	var path = null;
 	var playing = false;
 	var msg = {
 		"start":"点击开始录音",
-		"end":"点击结束录音"
+		"end":"再次点击可结束录音"
 	};
 	return {
 		prepare:function() {
@@ -35,6 +37,13 @@ $Controller.methods = function() {
 			});
 			this.loadRecordHistory();
 		},
+		refreshTime:function() {
+			tick++;
+			var h = parseInt(tick / 60 / 60);
+			var m = parseInt(tick / 60 % 60);
+			var s = parseInt(tick % 60);
+			$$('.audio-tips').html(('00' + h).substring(('00' + h).length - 2) + ':' + ('00' + m).substring(('00' + m).length - 2) + ':' + ('00' + s).substring(('00' + s).length - 2));
+		},
 		recordCircle:function(e) {
 			var classname = $$(e).attr('class');
 			var	isChange = classname.indexOf('active') == -1?false:true;
@@ -43,10 +52,13 @@ $Controller.methods = function() {
 				$$('.audio-tips').html(msg['end']);
 				$$('.js-audio-tool').removeClass('slideInUp animated').addClass('slideOutDown animated');
 				bridge('recorder').call('start');
+				this.tick = 0;
+				this.code = setInterval('$Controller.methods.refreshTime()', 1000);
 			}
 			else{
 				$$(e).removeClass('active')
-				$$('.audio-tips').html(msg['start']);
+				clearInterval(this.code);
+				// $$('.audio-tips').html(msg['start']);
 				$$('.js-audio-tool').removeClass('slideOutDown animated').show().addClass('slideInUp animated');
 				path = bridge('recorder').call('end');
 				console.log(path);
