@@ -18,7 +18,7 @@ canvas {
 .pages{
   margin-bottom: 50px;
 }
-.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.user-data-wrap,.user-data li{
+.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.client-list ul,.user-data-wrap,.user-data li,.js-position-view .content-block{
     border-style: solid;
     border-color: #ddd;
     border-image: url(ddata:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
@@ -81,8 +81,10 @@ canvas {
 }
 .badge{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  padding:0 7px;
+  width: 22px;
+  height: 22px;
   border-radius: 100%;
+  text-align: center;
 }
 .orange{
   color: #ff885a;
@@ -554,28 +556,39 @@ canvas {
 .js-client-view  .navbar-through .page>.searchbar~.page-content{
   padding-top: 48px;
 }
-.js-client-view .client-title li:not(.list-group-title){
+.html-client-view .client-title li:not(.list-group-title){
   padding-left: 0;
 }
-.js-client-view .client-title li{
+.html-client-view .client-title li{
   border-right:#eee solid 1px;
 }
-.js-client-view .client-title li:last-child{
+.html-client-view .client-title li:last-child{
   border-right:0;
 }
-.js-client-view .client-list ul{
+.html-client-view .client-list{
+  border-width: 0px;
+}
+.html-client-view .client-title ul{
+  display: -webkit-flex;
+}
+.html-client-view .client-list ul{
+  display: -webkit-flex;
   padding: 5px 0;
   border-width: 0 0 1px 0;
 }
-.js-client-view .client-title li,.js-client-view .client-list li{
-  width: 33%;
+.html-client-view .client-title li,.html-client-view .client-list li{
+  flex: 1;
   padding:5px 0;
   text-align: center;
   color: #757575;
   float: left;
 }
-.js-client-view .client-list .item-title{
+.html-client-view .client-list .item-title{
   font-size: 13px;
+}
+.html-client-view .button{
+  height: 48px;
+  line-height: 48px;
 }
 
 /********** 客户详情页 - 概况 ****************/
@@ -735,7 +748,11 @@ canvas {
   color: #fff!important;
 }
 .js-position-view .content-block{
+  border-width: 1px 0 0;
   margin: 0;
+}
+.js-position-view .list-block .item-title{
+  font-size: 13px;
 }
 /*************** 我的 *******/
 .js-user-view .user-info{
@@ -805,8 +822,8 @@ canvas {
     display : -ms-flexbox;
     display : -webkit-flex;
     display : flex;
-    height : 43px;
-    line-height : 43px;
+    height : 48px;
+    line-height : 48px;
     background-color : transparent;
     color : #666;
     font-size : 15px;

@@ -27,12 +27,13 @@
               <!-- 导航栏中的按键排控制器 -->
               <div class="buttons-row">
                 <!-- 关联到第一个tab的链接，默认激活 -->
-                <a href="#tab1" class="tab-link active button">股票</a>
+                <a href="#tab1" class="tab-link active button">委托</a>
                 <!-- 关联到第二个tab的链接 -->
-                <a href="#tab2" class="tab-link button">基金</a>
+                <a href="#tab2" class="tab-link button">成交</a>
                 <!-- 关联到第三个tab的链接 -->
-                <a href="#tab3" class="tab-link button">理财</a>
-                <i class="cui-tab-scrollbar cui-tabnum3"></i>
+                <a href="#tab3" class="tab-link button">银证转账</a>
+                <a href="#tab4" class="tab-link button">新股配号</a>
+                <i class="cui-tab-scrollbar cui-tabnum4"></i>
               </div>
             </div>
           </div>
@@ -42,7 +43,7 @@
             <!-- Tabs, tabs容器, page-content为tabs -->
             <div class="page-content tabs">
               <div class="split-line"></div>
-              <div class="content-block-title">持仓详情</div>
+              <div class="content-block-title">当日交易详情</div>
               <!-- Tab 1，默认激活 -->
               <div id="tab1" class="tab active">
                 <div class="content-block">
@@ -51,54 +52,29 @@
                         <div class="list-group client-title">
                             <ul class="clearfix">
                                 <li>
-                                    <div class="item-title">市值 </div>
+                                    <div class="item-title">股票名称 </div>
+                                </li>
+                                <li style="flex:2">
+                                    <div class="item-title">起始号/数量 </div>
                                 </li>
                                 <li>
-                                    <div class="item-title">盈亏 </div>
-                                </li>
-                                <li>
-                                    <div class="item-title">持仓/可用 </div>
-                                </li>
-                                <li>
-                                    <div class="item-title">成本/昨收盘 </div>
+                                    <div class="item-title">市场/日期 </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="list-group client-list">
-                          <ul class="clearfix" data-im="{{im}}">
+                          <ul class="clearfix">
                             <li>
-                              <div class="item-title red">0</div>
-                              <div class="item-title red">0</div>
+                              <div class="item-title red">上影配号</div>
+                              <div class="item-title">1</div>
+                            </li>
+                            <li style="flex:2">
+                              <div class="item-title">起始配号:1232393wqewqe92</div>
+                              <div class="item-title">12</div>
                             </li>
                             <li>
-                              <div class="item-title red">1</div>
-                              <div class="item-title red">1</div>
-                            </li>
-                            <li>
-                              <div class="item-title red">2</div>
-                              <div class="item-title red">2</div>
-                            </li>
-                            <li>
-                              <div class="item-title red">3</div>
-                              <div class="item-title red">3</div>
-                            </li>
-                          </ul>
-                          <ul class="clearfix" data-im="{{im}}">
-                            <li>
-                              <div class="item-title blue">0</div>
-                              <div class="item-title blue">0</div>
-                            </li>
-                            <li>
-                              <div class="item-title blue">1</div>
-                              <div class="item-title blue">1</div>
-                            </li>
-                            <li>
-                              <div class="item-title blue">2</div>
-                              <div class="item-title blue">2</div>
-                            </li>
-                            <li>
-                              <div class="item-title blue">3</div>
-                              <div class="item-title blue">3</div>
+                              <div class="item-title">上海</div>
+                              <div class="item-title">2016-08-22</div>
                             </li>
                           </ul>
                         </div>
@@ -121,6 +97,13 @@
                 <div class="content-block">
                   <p>This is tab 3 content</p>
                   3...
+                </div>
+              </div>
+              <!-- Tab 4 -->
+              <div id="tab4" class="tab">
+                <div class="content-block">
+                  <p>This is tab 4 content</p>
+                  4...
                 </div>
               </div>
             </div>
