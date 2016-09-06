@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>AFA</title>
+    <title>AFA - MOT Category</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/main.css">
+	<script id="template_category" type="text/template7">
+	{{#each this}}
+<li>
+  <a href="{{#js_compare "1 == this.id"}}motbirthday.html{{else}}#{{/js_compare}}" class="item-link item-content external" {{#js_compare "1 == this.id"}}target="_blank"{{/js_compare}}>
+	<div class="item-inner">
+	  <div class="item-title">{{name}}</div>
+	  {{#js_compare "this.msgCount > 0"}}
+	  <div class="item-after"><span class="badge bg-red">{{msgCount}}</span></div>
+	  {{/js_compare}}
+	</div>
+  </a>
+</li>
+	{{/each}}
+	</script>
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -37,38 +51,6 @@
                 <div class="page-content">
                     <div class="list-block">
                       <ul>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-inner">
-                              <div class="item-title">生日提醒</div>
-                              <div class="item-after"><span class="badge bg-red">5</span></div>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-inner">
-                              <div class="item-title">手机</div>
-                              <div class="item-after"><span class="badge bg-red">5</span></div>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-inner">
-                              <div class="item-title">座机</div>
-                              <div class="item-after"></div>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-inner">
-                              <div class="item-title">邮箱</div>
-                              <div class="item-after"><span class="badge bg-red">5</span></div>
-                            </div>
-                          </a>
-                        </li>
                       </ul>
                     </div>
                 </div>
@@ -81,7 +63,8 @@
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="lib/tools/chart.js"></script>
     <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/tools/bridge.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
-    <script type="text/javascript" src="js/controller/page.info.js"></script>
+    <script type="text/javascript" src="js/controller/page.motcategory.js"></script>
   </body>
 </html>
