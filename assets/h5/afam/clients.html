@@ -13,24 +13,24 @@
     <link rel="stylesheet" href="css/main.css">
 	<script id="template_clients" type="text/template7">
 	{{#each this}}
-<a href="clientprofile.html?aid={{accountId}}" class="external" target="_blank">
-	<ul class="clearfix" data-im="{{im}}">
-		<li>
-			<div class="item-title">{{name}}
-			{{#unless msgCount}}
-			{{else}}
-				[{{msgCount}}]
-			{{/unless}}
-			</div>
-		</li>
-		<li>
-			<div class="item-title gray">{{accountId}}</div>
-		</li>
-		<li>
-			<div class="item-title red">{{amount}}</div>
-		</li>
-	</ul>
-<a>
+        <a href="clientprofile.html?aid={{accountId}}" class="external" target="_blank">
+        	<ul class="clearfix" data-im="{{im}}">
+        		<li>
+        			<div class="item-title">{{name}}
+        			{{#unless msgCount}}
+        			{{else}}
+        				[{{msgCount}}]
+        			{{/unless}}
+        			</div>
+        		</li>
+        		<li>
+        			<div class="item-title gray">{{accountId}}</div>
+        		</li>
+        		<li>
+        			<div class="item-title red">{{amount}}</div>
+        		</li>
+        	</ul>
+        <a>
 	{{/each}}
 	</script>
   </head>
@@ -68,6 +68,19 @@
                             </ul>
                         </div>
                         <div class="list-group client-list">
+                            <ul class="clearfix" data-im="{{im}}">
+                                <li>
+                                    <div class="item-title">
+                                    3
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-title gray">1</div>
+                                </li>
+                                <li>
+                                    <div class="item-title red">2</div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="infinite-scroll-preloader">
