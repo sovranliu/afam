@@ -13,19 +13,19 @@ $Controller.methods = function() {
 				bridge('window').call('close');
 			});
 			$$('#div_name').on('click',function(){
-				_this.alert('name', $$(this).find('.item-after').html());
+				_this.alert('name', '姓名', $$(this).find('.item-after').html());
 			});
 			$$('#div_head').on('click',function(){
 				_this.alert('head', null);
 			});
 			$$('#div_phone').on('click',function(){
-				_this.alert('phone', $$(this).find('.item-after').html());
+				_this.alert('phone', '手机号码', $$(this).find('.item-after').html());
 			});
 			$$('#div_tel').on('click',function(){
-				_this.alert('tel', $$(this).find('.item-after').html());
+				_this.alert('tel', '座机', $$(this).find('.item-after').html());
 			});
 			$$('#div_mail').on('click',function(){
-				_this.alert('mail', $$(this).find('.item-after').html());
+				_this.alert('mail', '邮箱', $$(this).find('.item-after').html());
 			});
 		},
 		load:function() {
@@ -43,7 +43,7 @@ $Controller.methods = function() {
 				$$('#lab_mail').html(data.mail);
 			});
 		},
-		alert:function(k, d) {
+		alert:function(k, t, d) {
 			var _key = k;
 			if('head' == _key) {
 				bridge('window').asyc('inputImage', function(d) {
@@ -51,7 +51,7 @@ $Controller.methods = function() {
 				});
 				return;
 			}
-			bridge('window').asyc('inputText', d, function(d) {
+			bridge('window').asyc('inputText', t, d, function(d) {
 				if('name' == _key) {
 					$$('#lab_name').html(d);
 				}

@@ -17,12 +17,19 @@ import com.xyzq.afam.common.Logger;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
+import com.xyzq.simpson.sherry.general.view.form.TextEditActivity;
 
 /**
  * 逻辑 Web页
  */
 @ResourceView(id = R.layout.activity_logic)
 public class LogicActivity extends ActivityEx {
+	/**
+	 * 文本录入请求码
+	 */
+	public final static int REQUESTCODE_INPUTTEXT = 1;
+	
+	
 	@ResourceView(id = R.id.logic_browser)
 	public BridgeWebView browser;
 	
@@ -99,5 +106,20 @@ public class LogicActivity extends ActivityEx {
 			}
 		});
 		browser.loadUrl(this.getIntent().getStringExtra("url"));
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+			case REQUESTCODE_INPUTTEXT:
+				if(TextEditActivity.RESULT_UPDATED != resultCode || null == data) {
+					return;
+				}
+				String text = data.getStringExtra("result");
+				String tag = data.getStringExtra("tag");
+				browser.invoke(Integer.valueOf(tag), text);
+				break;
+		}
+	    super.onActivityResult(requestCode, resultCode, data);
 	}
 }
