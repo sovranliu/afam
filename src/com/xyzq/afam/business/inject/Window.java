@@ -11,6 +11,7 @@ import com.xyzq.simpson.base.model.core.IEventable;
 import com.xyzq.simpson.sherry.general.utility.GeneralHelper;
 
 import android.app.Activity;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 /**
@@ -78,5 +79,24 @@ public class Window {
 	 */
 	public void hideLoading() {
 		Tools.hideLoading();
+	}
+	
+	/**
+	 * 校正URL
+	 */
+	public void adjustLinks() {
+		adjustLinks(RunTime.currentBrowser);
+	}
+
+	/**
+	 * 校正URL
+	 * 
+	 * @param webView 浏览器对象
+	 */
+	public static void adjustLinks(WebView webView) {
+		if(null == webView) {
+			return;
+		}
+		webView.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');if(-1 == link.href.indexOf('new://')) {link.href = 'new://'+link.href;}}}}");
 	}
 }
