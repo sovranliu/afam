@@ -24,6 +24,7 @@ $Controller.methods = function() {
 				var data = resp.data;
 				var html = Template7.templates.template_category(data);
 				$$('.list-block ul').html(html);
+				$Controller.tools.adjustLinks();
 				$$('.list-block li').on('click',function(){
 					$$(this).find('.item-after').remove();
 				});

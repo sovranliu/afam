@@ -82,6 +82,7 @@ public class Tools {
 				rotate3dAnimation.setInterpolator(new LinearInterpolator());
 				rotate3dAnimation.setRepeatCount(Animation.INFINITE);
 				imgIcon.clearAnimation();
+				imgIcon.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 				imgIcon.startAnimation(rotate3dAnimation);  
 		        // 外环中心旋转
 				RotateAnimation rotateAnimation = new RotateAnimation(360f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f); 
@@ -89,6 +90,7 @@ public class Tools {
 				rotateAnimation.setRepeatCount(Animation.INFINITE);
 				rotateAnimation.setInterpolator(new LinearInterpolator());
 				imgCircle.clearAnimation();
+				imgCircle.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 				imgCircle.startAnimation(rotateAnimation);
 			}
 		});

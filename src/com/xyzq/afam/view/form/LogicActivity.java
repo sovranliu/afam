@@ -13,8 +13,7 @@ import com.xyzq.afam.business.RunTime;
 import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
-import com.xyzq.afam.common.Tools;
-import com.xyzq.simpson.carl.etc.Controller;
+import com.xyzq.afam.common.Logger;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
@@ -26,8 +25,8 @@ import com.xyzq.simpson.carl.view.control.BridgeWebView;
 public class LogicActivity extends ActivityEx {
 	@ResourceView(id = R.id.logic_browser)
 	public BridgeWebView browser;
-
 	
+
 	/**
 	 * 界面创建
 	 */
@@ -55,11 +54,12 @@ public class LogicActivity extends ActivityEx {
 		browser.inject("user", User.class);
 		browser.inject("window", new Window(this));
 		browser.inject("recorder", Recorder.class);
-		Tools.displayLoading(LogicActivity.this, null);
-		browser.loadUrl(this.getIntent().getStringExtra("url"));
+		// Tools.displayLoading(LogicActivity.this, null);
+		browser.setVisibility(View.VISIBLE);
 		browser.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
+				Logger.d("shouldOverrideUrlLoading(?, '" + url + "')");
 				if(url.startsWith("mailto:") || url.startsWith("geo:") ||url.startsWith("tel:")) {
 					Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 	                startActivity(intent);
@@ -87,15 +87,17 @@ public class LogicActivity extends ActivityEx {
 			@Override
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
+				Logger.d("onPageFinished(?, '" + url + "')");
 				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
-				Controller.doDelay(new Runnable() {
-					@Override
-					public void run() {
-						Tools.hideLoading();
-						browser.setVisibility(View.VISIBLE);
-					}
-				}, 500);
+//				Controller.doDelay(new Runnable() {
+//					@Override
+//					public void run() {
+//						Tools.hideLoading();
+//						browser.setVisibility(View.VISIBLE);
+//					}
+//				}, 1000);
 			}
 		});
+		browser.loadUrl(this.getIntent().getStringExtra("url"));
 	}
 }

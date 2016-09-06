@@ -14,6 +14,7 @@ import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Tools;
+import com.xyzq.simpson.base.text.Text;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.etc.Controller;
@@ -59,12 +60,14 @@ public class MainFragmentActivity extends FragmentEx {
 		browser.inject("user", User.class);
 		browser.inject("window", new Window(MainFragmentActivity.this.getActivity()));
 		browser.inject("recorder", Recorder.class);
-		String url = Networking.fetchURL("domain") + "/" + this.getTag();
-		if(null != Client.resource("afam").fetch(url)) {
-			url = Client.resource("afam").fetch(url);
+		if(!Text.isBlank(this.getTag())) {
+			String url = Networking.fetchURL("domain") + "/" + this.getTag();
+			if(null != Client.resource("afam").fetch(url)) {
+				url = Client.resource("afam").fetch(url);
+			}
+			Tools.displayLoading(this.getActivity(), null);
+			browser.loadUrl(url);
 		}
-		Tools.displayLoading(this.getActivity(), null);
-		browser.loadUrl(url);
 		browser.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -99,7 +102,7 @@ public class MainFragmentActivity extends FragmentEx {
 					public void run() {
 						Tools.hideLoading();
 					}
-				}, 1000);
+				}, 2000);
 				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 			}
 		});

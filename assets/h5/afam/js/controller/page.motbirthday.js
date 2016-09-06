@@ -24,6 +24,7 @@ $Controller.methods = function() {
 				var data = resp.data;
 				var html = Template7.templates.template_birthday(data);
 				$$('.list-block ul').html(html);
+				$Controller.tools.adjustLinks();
 				$$('.list-block i.iconfont').on('click',function() {
 					var im = $$(this).data('im');
 					var name = $$(this).parents('li.accordion-item').find('div.item-title').html();
