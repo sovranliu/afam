@@ -52,7 +52,7 @@ public class LogicActivity extends ActivityEx {
 	private void prepare() {
 		browser.prepare();
 		browser.inject("user", User.class);
-		browser.inject("window", new Window(this));
+		browser.inject("window", new Window(this, browser));
 		browser.inject("recorder", Recorder.class);
 		// Tools.displayLoading(LogicActivity.this, null);
 		browser.setVisibility(View.VISIBLE);

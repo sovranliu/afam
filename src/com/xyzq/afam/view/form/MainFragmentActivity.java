@@ -56,9 +56,10 @@ public class MainFragmentActivity extends FragmentEx {
 	 * 准备
 	 */
 	private void prepare() {
+		browser.setVisibility(View.INVISIBLE);
 		browser.prepare();
 		browser.inject("user", User.class);
-		browser.inject("window", new Window(MainFragmentActivity.this.getActivity()));
+		browser.inject("window", new Window(MainFragmentActivity.this.getActivity(), browser));
 		browser.inject("recorder", Recorder.class);
 		if(!Text.isBlank(this.getTag())) {
 			String url = Networking.fetchURL("domain") + "/" + this.getTag();
@@ -97,13 +98,14 @@ public class MainFragmentActivity extends FragmentEx {
 			@Override
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
+				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}");
+				browser.setVisibility(View.VISIBLE);
 				Controller.doDelay(new Runnable() {
 					@Override
 					public void run() {
 						Tools.hideLoading();
 					}
 				}, 2000);
-				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 			}
 		});
 	}

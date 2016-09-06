@@ -22,15 +22,21 @@ public class Window {
 	 * 窗口对象
 	 */
 	private Activity activity = null;
+	/**
+	 * 浏览器
+	 */
+	private WebView webView = null;
 
 
 	/**
 	 * 构造函数
 	 * 
 	 * @param activity 窗口
+	 * @param webView 浏览器
 	 */
-	public Window(Activity activity) {
+	public Window(Activity activity, WebView webView) {
 		this.activity = activity;
+		this.webView = webView;
 	}
 
 	/**
@@ -85,7 +91,7 @@ public class Window {
 	 * 校正URL
 	 */
 	public void adjustLinks() {
-		adjustLinks(RunTime.currentBrowser);
+		adjustLinks(webView);
 	}
 
 	/**

@@ -76,7 +76,7 @@ public class LoadActivity extends ActivityEx {
 					}
 					webIntroduce.prepare();
 					webIntroduce.loadUrl(url);
-					webIntroduce.inject("window", new Window(LoadActivity.this) {
+					webIntroduce.inject("window", new Window(LoadActivity.this, webIntroduce) {
 						/**
 						 * 关闭窗口
 						 */
