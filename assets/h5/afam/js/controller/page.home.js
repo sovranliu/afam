@@ -106,6 +106,7 @@ $Controller.methods = function() {
 				var html = null;
 				html = Template7.templates.template_news(resp.data);
 				$$('.list-block ul').append(html);
+				bridge('window').call('adjustLinks');
 			});
 		}
 	};
