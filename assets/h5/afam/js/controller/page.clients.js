@@ -47,7 +47,7 @@ $Controller.methods = function() {
 					return;
 				}
 				var itemCount = $$('.list-block li').length;
-				var ITEM_COUNT_MAX = 60;
+				var ITEM_COUNT_MAX = 300;
 				if(itemCount >= ITEM_COUNT_MAX) {
 					$Controller.f7.detachInfiniteScroll($$('.infinite-scroll'));
 					$$('.infinite-scroll-preloader').remove();
