@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>AFA</title>
+    <title>AFA - 客户持仓</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/main.css">
+	<script id="template_position" type="text/template7">
+	{{#each this}}
+<ul class="clearfix">
+	<li>
+		<div class="item-title grey">{{name}}</div>
+		<div class="item-title grey">{{value}}</div>
+	</li>
+	<li>
+		{{#with profit}}
+			<div class="item-title blue">{{total}}</div>
+			<div class="item-title blue">{{percent}}</div>
+		{{/with}}
+	</li>
+	<li>
+		{{#with position}}
+			<div class="item-title orange">{{total}}</div>
+			<div class="item-title orange">{{usable}}</div>
+		{{/with}}
+	</li>
+	<li>
+		{{#with price}}
+			<div class="item-title red">{{original}}</div>
+			<div class="item-title red">{{current}}</div>
+		{{/with}}
+	</li>
+</ul>
+	{{/each}}
+	</script>
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -23,6 +51,11 @@
       <div class="view view-main">
         <div class="navbar">
           <div class="navbar-inner">
+            <div class="left">
+              <a id="btn_close" href="#" class="link icon-only">
+                <i class="icon icon-back"></i>
+              </a>
+            </div>
             <div class="center">
               <!-- 导航栏中的按键排控制器 -->
               <div class="buttons-row">
@@ -64,43 +97,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="list-group client-list">
-                          <ul class="clearfix" data-im="{{im}}">
-                            <li>
-                              <div class="item-title red">0</div>
-                              <div class="item-title red">0</div>
-                            </li>
-                            <li>
-                              <div class="item-title red">1</div>
-                              <div class="item-title red">1</div>
-                            </li>
-                            <li>
-                              <div class="item-title red">2</div>
-                              <div class="item-title red">2</div>
-                            </li>
-                            <li>
-                              <div class="item-title red">3</div>
-                              <div class="item-title red">3</div>
-                            </li>
-                          </ul>
-                          <ul class="clearfix" data-im="{{im}}">
-                            <li>
-                              <div class="item-title blue">0</div>
-                              <div class="item-title blue">0</div>
-                            </li>
-                            <li>
-                              <div class="item-title blue">1</div>
-                              <div class="item-title blue">1</div>
-                            </li>
-                            <li>
-                              <div class="item-title blue">2</div>
-                              <div class="item-title blue">2</div>
-                            </li>
-                            <li>
-                              <div class="item-title blue">3</div>
-                              <div class="item-title blue">3</div>
-                            </li>
-                          </ul>
+                        <div id="stock_list" class="list-group client-list">
                         </div>
                     </div>
                     <div class="infinite-scroll-preloader">
@@ -112,49 +109,94 @@
               <!-- Tab 2 -->
               <div id="tab2" class="tab">
                 <div class="content-block">
-                  <p>This is tab 2 content</p>
-                  2...
+                  <div class="infinite-scroll" data-distance="100">
+                    <div class="list-block contacts-block">
+                        <div class="list-group client-title">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="item-title">市值 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">盈亏 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">持仓/可用 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">成本/昨收盘 </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="fund_list" class="list-group client-list">
+                        </div>
+                    </div>
+                    <div class="infinite-scroll-preloader">
+                      <div class="preloader"></div>
+                    </div>
+                </div>
                 </div>
               </div>
               <!-- Tab 3 -->
               <div id="tab3" class="tab">
                 <div class="content-block">
-                  <p>This is tab 3 content</p>
-                  3...
+                  <div class="infinite-scroll" data-distance="100">
+                    <div class="list-block contacts-block">
+                        <div class="list-group client-title">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="item-title">市值 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">盈亏 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">持仓/可用 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">成本/昨收盘 </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="product_list" class="list-group client-list">
+                        </div>
+                    </div>
+                    <div class="infinite-scroll-preloader">
+                      <div class="preloader"></div>
+                    </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="toolbar tabbar-labels">
             <div class="toolbar-inner">
-                <a href="#view-1" class="tab-link">
+                <a href="./clientprofile.html" class="tab-link">
                     <i class="icon iconfont">&#xe681;</i>
                     <span class="tabbar-label">概况</span>
                 </a>
-                <a href="#view-2" class="tab-link">
+                <a href="./clientprofit.html" class="tab-link">
                     <i class="icon iconfont">&#xe663;</i>
                     <span class="tabbar-label">盈亏</span>
                 </a>
-                <a href="#view-3" class="tab-link active">
+                <a href="./clientposition.html" class="tab-link active">
                     <i class="icon iconfont">&#xe66b;</i>
                     <span class="tabbar-label">持仓</span>
                 </a>
-                <a href="#view-4" class="tab-link">
+                <a href="./clientdeal.html" class="tab-link">
                     <i class="icon iconfont">&#xe668;</i>
                     <span class="tabbar-label">交易</span>
                 </a>
             </div>
         </div>
       </div>
-      
     </div>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="lib/tools/chart.js"></script>
     <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/tools/bridge.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
-    <script type="text/javascript" src="js/controller/page.info.js"></script>
+    <script type="text/javascript" src="js/controller/page.clientposition.js"></script>
   </body>
 </html>

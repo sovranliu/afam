@@ -36,7 +36,7 @@ $Controller.methods = function() {
 			if(null == aId) {
 				return;
 			}
-			$$.getJSON(S_DOMAIN + '/afam/rest/client/profit', {}, function(resp) {
+			$$.getJSON(S_DOMAIN + '/afam/rest/client/profit', {"aid":aId}, function(resp) {
 				if(resp.code < 0) {
 					bridge('window').call('tip', resp.msg || '客户盈亏服务错误');
 					return;
