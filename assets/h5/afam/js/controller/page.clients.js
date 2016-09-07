@@ -12,6 +12,9 @@ $Controller.methods = function() {
 			$$('.searchbar-input').on('input propertychange', function() {
 				_this.refresh($$(this).find('input').val());
 			});
+			$$('a.searchbar-clear').on('click', function() {
+				_this.refresh('');
+			});
 			// 刷新客户列表
 			_this.refresh('');
 		},
