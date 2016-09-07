@@ -29,7 +29,6 @@
 .welcomescreen-picture{
   width: 100%;
   text-align: center;
-  margin-top: 30%;
 }
 
 .welcomescreen-text {
@@ -46,11 +45,10 @@
 }
 
 .welcomescreen-container .swiper-pagination-bullet{
-  background: rgba(255, 255, 255, 0.9) !important;
 }
 
 .welcomescreen-container .swiper-pagination-bullet-active{
-  background: #fff;
+  background: #44a0ea;
 }
 
 .swiper-container-horizontal>.swiper-pagination{
@@ -59,4 +57,18 @@
 
 html.with-statusbar-overlay .welcomescreen-container{
     top: 20px;
+}
+.tutorialicon {
+  font-size: 250px;
+  line-height: 170px;
+}
+.tutorialicon img{
+  width: 100%;
+}
+.tutorial-close-btn{
+  border: #44a0ea solid 1px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    color: #44a0ea;
+    font-size: 13px;
 }

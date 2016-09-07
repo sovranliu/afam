@@ -2,29 +2,23 @@
 
 $Controller.bind = function() {
     var options = {
-		"bgcolor": "#0da6ec",
+		"bgcolor": "#fff",
 		"fontcolor": "#fff"
 	};
     var slides = [
 		{
 			"id": "slide0",
-			"picture": "<div class='tutorialicon'>♥</div>",
-			"text": "Welcome to AFA."
+			"picture": "<div class='tutorialicon'><img src='image/welcome_1.jpg'/></div>",
 		},
 		{
 			"id": "slide1",
-			"picture": "<div class='tutorialicon'>✲</div>",
-			"text": "The Most Professional Advisor APP"
+			"picture": "<div class='tutorialicon'><img src='image/welcome_2.jpg'/></div>",
 		},
 		{
 			"id": "slide2",
-			"picture": "<div class='tutorialicon'>♫</div>",
-			"text": "Support By Shanghai Team"
-		},
-		{
-			"id": "slide3",
-			"picture": "<div class='tutorialicon'>☆</div>",
-			"text": "<a class='tutorial-close-btn' href='#'>Get it, Now</a>"
+			"picture": "<div class='tutorialicon'><img src='image/welcome_3.jpg'/></div>",
+			"text": "<a class='tutorial-close-btn' href='#'>立即体验</a>"
+
 		}
 	];
     $Controller.welcomescreen = $Controller.f7.welcomescreen(slides, options);

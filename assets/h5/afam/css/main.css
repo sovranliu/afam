@@ -24,11 +24,6 @@ canvas {
     border-image: url(ddata:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
     -webkit-border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
 }
-.tutorialicon {
-  font-size: 250px;
-  line-height: 170px;
-}
-
 .tutorial-close-btn {
   background: #fff;
   padding: 10px;
