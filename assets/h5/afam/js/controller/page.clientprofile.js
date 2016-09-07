@@ -19,6 +19,7 @@ $Controller.methods = function() {
 				bridge('user').call('chat', _this.name, _this.im);
 			});
 			this.refresh();
+			this.adjustTabLinks();
 		},
 		initNav:function() {
 			$$('.page-content').on('scroll', function(){
@@ -104,6 +105,20 @@ $Controller.methods = function() {
 				}
 			}
 			return null;
+		},
+		adjustTabLinks:function() {
+			var _this = this;
+			$$('a.tab-link').each(function callback() {
+				var l = $$(this).attr('href');
+				if(l.indexOf('aid=') > 0) return;
+				if(l.indexOf('?') > 0) {
+					l = l + '&aid=' + _this.getAId();
+				}
+				else {
+					l = l + '?aid=' + _this.getAId();
+				}
+				$$(this).attr('href', l);
+			});
 		},
 		refresh:function() {
 			var _this = this;

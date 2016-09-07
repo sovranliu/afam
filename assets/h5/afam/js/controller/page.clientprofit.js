@@ -11,6 +11,7 @@ $Controller.methods = function() {
 				bridge('window').call('close');
 			});
 			this.load();
+			this.adjustTabLinks();
 		},
 		getAId:function() {
 			var s = location.search;
@@ -44,6 +45,20 @@ $Controller.methods = function() {
 				_this.renderOverview(data.overview);
 				_this.renderLR(data.lr);
 				_this.renderChart(data.chart);
+			});
+		},
+		adjustTabLinks:function() {
+			var _this = this;
+			$$('a.tab-link').each(function callback() {
+				var l = $$(this).attr('href');
+				if(l.indexOf('aid=') > 0) return;
+				if(l.indexOf('?') > 0) {
+					l = l + '&aid=' + _this.getAId();
+				}
+				else {
+					l = l + '?aid=' + _this.getAId();
+				}
+				$$(this).attr('href', l);
 			});
 		},
 		renderOverview:function(o) {
