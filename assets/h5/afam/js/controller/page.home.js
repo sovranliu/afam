@@ -83,8 +83,9 @@ $Controller.methods = function() {
 			});
 		},
 		initNews:function() {
+			var _this = this;
 			$$('.infinite-scroll').on('infinite', function () {
-				this.loadNews();
+				_this.loadNews();
 			});
 		},
 		loadNews:function() {
