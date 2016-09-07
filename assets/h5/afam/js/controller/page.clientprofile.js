@@ -11,7 +11,6 @@ $Controller.methods = function() {
 		prepare:function() {
 			var _this = this;
 			this.initNav();
-			this.initPieChart();
 			this.switchTab();
 			$$('#btn_close').on('click',function(){
 				bridge('window').call('close');
@@ -31,7 +30,7 @@ $Controller.methods = function() {
 				}
 			});
 		},
-		initPieChart:function() {
+		initPieChart:function(a) {
 			var randomScalingFactor = function() {
 		        return Math.round(Math.random() * 100);
 		    };
@@ -41,34 +40,23 @@ $Controller.methods = function() {
 		    var randomColor = function(opacity) {
 		        return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';
 		    };
+			var d = [];
+			var c = [];
+			var n = [];
+			for(var k in a) {
+				d.push(a[k]);
+				c.push(randomColor());
+				n.push(k);
+			}
 		    var config = {
 		        type: 'pie',
 		        data: {
 		            datasets: [{
-		                data: [
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                    randomScalingFactor(),
-		                ],
+		                data: d,
 		        		borderWidth:1,
-
-		                backgroundColor: [
-		                    "#ff6668",
-		                    "#01c195",
-		                    "#f9c051",
-		                    "#999999",
-		                    "#44a0ea",
-		                ],
+		                backgroundColor: c
 		            }],
-		            labels: [
-		                "Red",
-		                "Green",
-		                "Yellow",
-		                "Grey",
-		                "Blue"
-		            ]
+		            labels: n
 		        },
 		        options: {
 		            responsive: true,
@@ -81,10 +69,8 @@ $Controller.methods = function() {
 			        }
 		        },
 		    };
-		    window.onload = function() {
-		        var ctx = document.getElementById("chart-area").getContext("2d");
-		        window.myPie = new Chart(ctx, config);
-		    };
+			var ctx = document.getElementById("chart-area").getContext("2d");
+			window.myPie = new Chart(ctx, config);
 		},
 		switchTab:function() {
 			$$('.js-tab-finacne i').on('click',function(){
@@ -125,7 +111,7 @@ $Controller.methods = function() {
 			if(null == aId) {
 				return;
 			}
-			$$.getJSON(S_DOMAIN + '/afam/rest/clientprofile', {"aid":aId}, function(resp) {
+			$$.getJSON(S_DOMAIN + '/afam/rest/client/profile', {"aid":aId}, function(resp) {
 				if(resp.code < 0) {
 					bridge('window').call('tip', resp.msg || '客户概况服务错误');
 					return;
@@ -147,6 +133,7 @@ $Controller.methods = function() {
 				$$('#account_createdate').html(account.createDate);
 				$$('#account_bank').html(account.bank);
 				$$('#account_commission').html(account.commission);
+				_this.initPieChart(data.assets);
 				var kv = data.assets;
 				for(var key in data.pay) {
 					kv[key] = data.pay[key];
