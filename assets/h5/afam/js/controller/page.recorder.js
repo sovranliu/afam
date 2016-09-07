@@ -108,10 +108,12 @@ $Controller.methods = function() {
 			if(playing) {
 				bridge('recorder').call('stop');
 				playing = false;
+				bridge('window').call('tip', '停止播放');
 			}
 			else {
 				bridge('recorder').call('play', path);
 				playing = true;
+				bridge('window').call('tip', '开始播放');
 			}
 		}
 	};
