@@ -294,7 +294,7 @@ canvas {
   display: inline-block;
   text-align: center;
   color: #333;
-  font-size: 13px;
+  font-size: 12px;
   margin-top: 10px;
 }
 .fast-wrap .fast-link .fast-box{
@@ -1003,6 +1003,21 @@ canvas {
   margin:0 auto;
   color: #fff;
 }
+/*************** query ******************/
+.js-query-view .page{
+  background: #fff
+}
+.query-title{
+  padding:5px 10px 0;
+  background: #fff;
+}
+.js-query-view .fast-wrap{
+  padding: 0 8px;
+}
+.js-query-view .fast-wrap .fast-link a{
+  font-size: 9px;
+}
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
