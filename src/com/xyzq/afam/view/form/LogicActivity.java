@@ -10,10 +10,12 @@ import android.widget.Toast;
 
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.RunTime;
+import com.xyzq.afam.business.core.IMeListener;
 import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Logger;
+import com.xyzq.simpson.base.type.Table;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
@@ -23,7 +25,7 @@ import com.xyzq.simpson.sherry.general.view.form.TextEditActivity;
  * 逻辑 Web页
  */
 @ResourceView(id = R.layout.activity_logic)
-public class LogicActivity extends ActivityEx {
+public class LogicActivity extends ActivityEx implements IMeListener {
 	/**
 	 * 文本录入请求码
 	 */
@@ -121,5 +123,20 @@ public class LogicActivity extends ActivityEx {
 				break;
 		}
 	    super.onActivityResult(requestCode, resultCode, data);
+	}
+
+	@Override
+	public void onLogout() {
+		this.finish();
+	}
+
+	@Override
+	public void onConflict() {
+		this.finish();
+	}
+
+	@Override
+	public void onCommand(String from, String action, Table<String, Object> data) {
+		
 	}
 }
