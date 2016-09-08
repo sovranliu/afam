@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AFA - 客户盈亏</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Views-->
+    <div class="panel panel-left panel-cover">
+        <div class="view panel-view"> ... </div>
+    </div>
+      <!-- Views -->
+    <div class="views html-query-result">
+        <!-- Your main view -->
+        <div class="view view-main">
+        <!-- Navbar-->
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left">
+                  <a id="btn_close" href="#" class="link icon-only">
+                    <i class="icon icon-back"></i>
+                  </a>
+                </div>
+                <!-- We have home navbar without left link-->
+                <div class="center">新股申购</div>
+              </div>
+            </div>
+            <!-- Pages -->
+            <div class="pages navbar-fixed">
+                <div class="page" data-page="">
+                    <div class="page-content">
+                        <div class="content-block-title">基本信息</div>
+                        <div class="list-block">
+                          <ul>
+                            <li>
+                              <div class="item-content">
+                                <div class="item-inner">
+                                  <div class="item-title label">设备</div>
+                                  <div class="item-input">
+                                    <input type="text" placeholder="Your iOS device"  id="picker-device">
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="item-content">
+                                <div class="item-inner">
+                                  <div class="item-title label">选择日期</div>
+                                  <div class="item-input">
+                                    <input type="text" placeholder="Your birth date" readonly id="calendar-default">
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="item-content">
+                                <div class="item-inner">
+                                  <div class="item-title label">输入名字</div>
+                                  <div class="item-input">
+                                    <input type="text" placeholder="Your name">
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="item-content">
+                                <div class="item-inner">
+                                  <div class="item-title label">Switch</div>
+                                  <div class="item-input">
+                                    <label class="label-switch">
+                                      <input type="checkbox">
+                                      <div class="checkbox"></div>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div> 
+                        
+                        <div class="content-block-title">多选</div>
+                        <div class="list-block">
+                          <ul>
+                            <!-- Single chekbox item -->
+                            <li>
+                              <label class="label-checkbox item-content">
+                                <!-- Checked by default -->
+                                <input type="checkbox" name="my-checkbox" value="Books" checked="checked">
+                                <div class="item-media">
+                                  <i class="icon icon-form-checkbox"></i>
+                                </div>
+                                <div class="item-inner">
+                                  <div class="item-title">Books</div>
+                                </div>
+                              </label>
+                            </li>
+                            <!-- Another chekbox item -->
+                            <li>
+                              <label class="label-checkbox item-content">
+                                <input type="checkbox" name="my-checkbox" value="Movies">
+                                <div class="item-media">
+                                  <i class="icon icon-form-checkbox"></i>
+                                </div>
+                                <div class="item-inner">
+                                  <div class="item-title">Movies</div>
+                                </div>
+                              </label>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="content-block-title">单选</div>
+                        <div class="list-block">
+                          <ul>
+                            <!-- Single radio input -->
+                            <li>
+                              <label class="label-radio item-content">
+                                <!-- Checked by default -->
+                                <input type="radio" name="my-radio" value="Books" checked="checked">
+                                <div class="item-media">
+                                  <i class="icon icon-form-radio"></i>
+                                </div>
+                                <div class="item-inner">
+                                  <div class="item-title">Books</div>
+                                </div>
+                              </label>
+                            </li>
+                            <!-- Another radio input -->
+                            <li>
+                              <label class="label-radio item-content">
+                                <input type="radio" name="my-radio" value="Movies">
+                                <div class="item-media">
+                                  <i class="icon icon-form-radio"></i>
+                                </div>
+                                <div class="item-inner">
+                                  <div class="item-title">Movies</div>
+                                </div>
+                              </label>
+                            </li>
+                          </ul>
+                        </div>   
+                        <p><a href="#" class="button btn-search">搜索</a></p> 
+                    </div>
+                </div>
+            </div>
+              <!-- Toolbar-->
+            <!-- Another view -->
+            <div class="view another-view">
+              <!-- Navbar-->
+              <!-- Pages -->
+              <!-- Toolbar-->
+            </div>
+        </div>
+    </div>
+    <div class="popup">
+        <div class="view popup-view"> ... </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/tools/bridge.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
+    <script type="text/javascript" src="js/controller/page.query-result.js"></script>
+  </body>
+</html>

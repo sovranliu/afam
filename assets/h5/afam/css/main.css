@@ -208,18 +208,18 @@ canvas {
 }
 
 /*toolbar 覆盖*/
-.toolbar{
+.html-client-view .toolbar{
   border-top: #eee solid 1px;
   background: #f7f7f8
 }
-.tabbar-labels{
+.html-client-view .tabbar-labels{
   height: 50px;
 }
-.tabbar-labels a.tab-link{
+.html-client-view .tabbar-labels a.tab-link{
     padding-top: 4px;
     padding-bottom: 4px;
 }
-.toolbar a{
+.html-client-view .toolbar a{
     color: #929292;
     -webkit-flex-shrink: 1;
     -ms-flex: 0 1 auto;
@@ -229,7 +229,7 @@ canvas {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.toolbar a.tab-link{
+.html-client-view .toolbar a.tab-link{
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -254,10 +254,10 @@ canvas {
     -webkit-flex-direction: column;
     flex-direction: column;
 }
-.toolbar a.active{
+.html-client-view .toolbar a.active{
   color: #44a0ea;
 }
-.tabbar-labels span.tabbar-label{
+.html-client-view .tabbar-labels span.tabbar-label{
   margin-top: 5px;
   font-size: 12px;
 }
@@ -1012,7 +1012,16 @@ canvas {
 .js-query-view .fast-wrap .fast-link a{
   font-size: 9px;
 }
-
+.html-query-result .content-block-title{
+  background: #efeff4;
+  border-left: 0;
+}
+.btn-search{
+  background-color: #ff885a;
+  width: 80%;
+  margin:0 auto;
+  color: #fff;
+}
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
