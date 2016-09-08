@@ -38,6 +38,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center"
 		    android:textSize="12dip"
+		    android:textColor="@color/white"
 		    android:layout_marginTop="6dp"
 		    android:text="加载中"
 		    android:visibility="gone" >

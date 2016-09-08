@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xyzq.afam.R;
@@ -21,6 +23,7 @@ import com.xyzq.simpson.base.type.Table;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
+import com.xyzq.simpson.carl.view.control.BridgeWebView.Listener;
 import com.xyzq.simpson.sherry.general.view.form.TextEditActivity;
 
 /**
@@ -36,6 +39,14 @@ public class LogicActivity extends ActivityEx implements IMeListener {
 	
 	@ResourceView(id = R.id.logic_browser)
 	public BridgeWebView browser;
+	@ResourceView(id = R.id.logic_layout_header)
+	public View viewHeader;
+	@ResourceView(id = R.id.logic_image_close)
+	public ImageView imgClose;
+	@ResourceView(id = R.id.logic_label_title)
+	public TextView labTitle;
+	@ResourceView(id = R.id.logic_view_process)
+	public View process;
 	
 
 	/**
@@ -68,6 +79,28 @@ public class LogicActivity extends ActivityEx implements IMeListener {
 		browser.inject("recorder", Recorder.class);
 		// Tools.displayLoading(LogicActivity.this, null);
 		browser.setVisibility(View.VISIBLE);
+		browser.setListener(new Listener() {
+			@Override
+			public void onProgressChanged(int progress) {
+				android.view.ViewGroup.LayoutParams lp = process.getLayoutParams();
+		        lp.width = viewHeader.getWidth() * progress / 100;      
+		        process.setLayoutParams(lp);
+			}
+			@Override
+			public void onReceivedTitle(String title) {
+				if(title.startsWith("[") && title.endsWith("]")) {
+					labTitle.setText(title.substring(1, title.length() - 1));
+					viewHeader.setVisibility(View.VISIBLE);
+					process.setVisibility(View.VISIBLE);
+				}
+			}
+		});
+		imgClose.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				LogicActivity.this.finish();
+			}
+		});
 		browser.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -87,6 +120,7 @@ public class LogicActivity extends ActivityEx implements IMeListener {
 					browser.resumeTimers();
 	                return true;
 				}
+				process.setVisibility(View.VISIBLE);
 	            return super.shouldOverrideUrlLoading(view, url);
 			}
 			@Override
@@ -99,6 +133,7 @@ public class LogicActivity extends ActivityEx implements IMeListener {
 			@Override
 	        public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
+				process.setVisibility(View.GONE);
 				Logger.d("onPageFinished(?, '" + url + "')");
 				view.loadUrl("javascript: var allLinks = document.getElementsByTagName('a'); if (allLinks) {var i;for (i=0; i<allLinks.length; i++) {var link = allLinks[i];var target = link.getAttribute('target'); if (target && target == '_blank') {link.setAttribute('target','_self');link.href = 'new://'+link.href;}}}"); 
 //				Controller.doDelay(new Runnable() {

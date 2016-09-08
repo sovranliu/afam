@@ -62,6 +62,7 @@ public class Tools {
 			textView.setVisibility(View.GONE);
 		}
 		else {
+			textView.setText(title);
 			textView.setVisibility(View.VISIBLE);
 		}
 		imageView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {

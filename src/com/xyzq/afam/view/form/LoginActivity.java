@@ -83,7 +83,7 @@ public class LoginActivity extends ActivityEx {
 				if(Text.isBlank(password)) {
 					return;
 				}
-				Tools.displayLoading(LoginActivity.this, null);
+				Tools.displayLoading(LoginActivity.this, "登录中");
 				Me.login(LoginActivity.this, phone, password, new IEventable<Boolean>() {
 					@SuppressWarnings("deprecation")
 					@Override

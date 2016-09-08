@@ -4,10 +4,44 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/logic_layout_header"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:background="@color/main"
+		android:visibility="gone">
+		<ImageView
+            android:id="@+id/logic_image_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:background="@drawable/arrow_left_white_wide" />
+        <TextView
+            android:id="@+id/logic_label_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:maxLength="10"
+            android:text="浏览器"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+	</RelativeLayout>
+	<View 
+	    android:id="@+id/logic_view_process"
+		android:layout_width="fill_parent"
+		android:layout_height="1dp"
+  		android:layout_alignParentLeft="true"
+  		android:layout_below="@id/logic_layout_header"
+  		android:background="@color/green"
+		android:visibility="gone" />
 	<com.xyzq.simpson.carl.view.control.BridgeWebView
 		android:id="@+id/logic_browser"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
   		android:layout_alignParentLeft="true"
-  		android:layout_alignParentTop="true" />
+  		android:layout_below="@id/logic_view_process" />
 </RelativeLayout>
