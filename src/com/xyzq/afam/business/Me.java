@@ -212,6 +212,8 @@ public class Me implements Serializable, IReactor {
 		intent.putExtra("selfId", userName);
 		intent.putExtra("remoteId", im);
 		context.startActivity(intent);
+		//
+		Broadcaster.<IMeListener>broadcast(Program.application, IMeListener.class).onCommand(name, "chat", new Table<String, Object>());
 	}
 
 	/**

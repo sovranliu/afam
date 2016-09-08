@@ -7,6 +7,7 @@ $Controller.bind = function() {
 $Controller.methods = function() {
 	var name = null;
 	var im = null;
+	var tick = 0;
 	return {
 		prepare:function() {
 			var _this = this;
@@ -20,6 +21,33 @@ $Controller.methods = function() {
 			});
 			this.refresh();
 			this.adjustTabLinks();
+			bridge('window').listen('onCommand', this.refreshChatIcon);
+			bridge('window').listen('onResume', this.refreshChatIcon);
+		},
+		shakeChatIcon:function() {
+			if($$('#chat_icon').hasClass('red')) {
+				$$('#chat_icon').removeClass('red');
+			}
+			else {
+				$$('#chat_icon').addClass('red');
+			}
+		},
+		refreshChatIcon:function() {
+			var c = bridge('user').call('unreadMessages', this.im);
+			if(c > 0) {
+				if(0 == tick) {
+					tick = setInterval('$Controller.methods.shakeChatIcon()', 500);
+				}
+			}
+			else {
+				if(tick > 0) {
+					clearInterval(tick);
+					tick = 0;
+					if($$('#chat_icon').hasClass('red')) {
+						$$('#chat_icon').removeClass('red');
+					}
+				}
+			}
 		},
 		initNav:function() {
 			$$('.page-content').on('scroll', function(){
@@ -159,6 +187,7 @@ $Controller.methods = function() {
 				$$('#risk-category').html(risk.category);
 				$$('#risk-expire').html(risk.expire);
 				$$('.client-other-wrap').html(data.tag);
+				_this.refreshChatIcon();
 			});
 		}
 	};

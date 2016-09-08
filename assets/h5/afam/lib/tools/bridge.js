@@ -29,13 +29,27 @@ function bridge(name) {
 		bridge_invoke(clazz, p, method, a);
 	}
 	result['asyc'] = asyc;
+	function listen(eName, callback) {
+		if(null == callback) {
+			delete g_callback[eName];
+		}
+		else {
+			g_callback[eName] = callback;
+		}
+	}
+	result['listen'] = listen;
 	return result;
 }
 
 function bridge_callback(p, r) {
 	var f = g_callback['' + p];
+	if('number' == typeof(p)) {
+		delete g_callback['' + p];
+	}
+	if(undefined == f) {
+		return;
+	}
 	f(r);
-	delete g_callback['' + p];
 }
 
 function bridge_invoke(c, p, m, a) {

@@ -15,6 +15,8 @@ import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Logger;
+import com.xyzq.simpson.base.json.JSONObject;
+import com.xyzq.simpson.base.json.JSONString;
 import com.xyzq.simpson.base.type.Table;
 import com.xyzq.simpson.carl.view.annotation.ResourceView;
 import com.xyzq.simpson.carl.view.component.ActivityEx;
@@ -53,6 +55,7 @@ public class LogicActivity extends ActivityEx implements IMeListener {
 	public void onResume() {
 		super.onResume();
 		RunTime.refresh(this, browser);
+		browser.trigger("onResume", null);
 	}
 
 	/**
@@ -137,6 +140,9 @@ public class LogicActivity extends ActivityEx implements IMeListener {
 
 	@Override
 	public void onCommand(String from, String action, Table<String, Object> data) {
-		
+		JSONObject object = JSONObject.convert(data);
+		object.put("from", new JSONString(from));
+		object.put("action", new JSONString(action));
+		browser.trigger("onCommand", object);
 	}
 }

@@ -39,6 +39,16 @@ public class User {
 	}
 
 	/**
+	 * 未读消息
+	 * 
+	 * @param im 
+	 * @return 未读消息
+	 */
+	public static int unreadMessages(String im) {
+		return Module.getUnreadMessageCount(im);
+	}
+
+	/**
 	 * 打开指定客户的对话框
 	 * 
 	 * @param name 客户名

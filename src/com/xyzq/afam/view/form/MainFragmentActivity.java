@@ -10,11 +10,15 @@ import android.widget.Toast;
 
 import com.xyzq.afam.R;
 import com.xyzq.afam.business.RunTime;
+import com.xyzq.afam.business.core.IMeListener;
 import com.xyzq.afam.business.inject.Recorder;
 import com.xyzq.afam.business.inject.User;
 import com.xyzq.afam.business.inject.Window;
 import com.xyzq.afam.common.Tools;
+import com.xyzq.simpson.base.json.JSONObject;
+import com.xyzq.simpson.base.json.JSONString;
 import com.xyzq.simpson.base.text.Text;
+import com.xyzq.simpson.base.type.Table;
 import com.xyzq.simpson.carl.view.control.BridgeWebView;
 import com.xyzq.simpson.carl.communication.Networking;
 import com.xyzq.simpson.carl.etc.Controller;
@@ -26,7 +30,7 @@ import com.xyzq.simpson.marge.Client;
  * 引导界面
  */
 @ResourceView(id = R.layout.activity_mainfragment)
-public class MainFragmentActivity extends FragmentEx {
+public class MainFragmentActivity extends FragmentEx implements IMeListener {
 	/**
 	 * 控件
 	 */
@@ -50,6 +54,7 @@ public class MainFragmentActivity extends FragmentEx {
 	public void onResume() {
 		super.onResume();
 		RunTime.refresh(this.getActivity(), browser);
+		browser.trigger("onResume", null);
 	}
 
 	/**
@@ -108,5 +113,23 @@ public class MainFragmentActivity extends FragmentEx {
 				}, 2000);
 			}
 		});
+	}
+
+	@Override
+	public void onLogout() {
+		
+	}
+
+	@Override
+	public void onConflict() {
+		
+	}
+
+	@Override
+	public void onCommand(String from, String action, Table<String, Object> data) {
+		JSONObject object = JSONObject.convert(data);
+		object.put("from", new JSONString(from));
+		object.put("action", new JSONString(action));
+		browser.trigger("onCommand", object);
 	}
 }

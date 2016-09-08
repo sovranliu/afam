@@ -29,7 +29,7 @@ public class Window {
 	/**
 	 * 浏览器
 	 */
-	private WebView webView = null;
+	private BridgeWebView webView = null;
 
 
 	/**
@@ -38,7 +38,7 @@ public class Window {
 	 * @param activity 窗口
 	 * @param webView 浏览器
 	 */
-	public Window(Activity activity, WebView webView) {
+	public Window(Activity activity, BridgeWebView webView) {
 		this.activity = activity;
 		this.webView = webView;
 	}

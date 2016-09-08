@@ -15,6 +15,7 @@ $Controller.methods = function() {
 			$$('a.searchbar-clear').on('click', function() {
 				_this.refresh('');
 			});
+			bridge('window').listen('onCommand', this.refresh);
 			// 刷新客户列表
 			_this.refresh('');
 		},
