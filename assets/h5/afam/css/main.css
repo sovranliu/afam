@@ -567,16 +567,20 @@ canvas {
   display: -webkit-flex;
 }
 .html-client-view .client-list ul{
+  width: 100%;
   display: -webkit-flex;
-  padding: 5px 0;
   border-width: 0 0 1px 0;
 }
 .html-client-view .client-title li,.html-client-view .client-list li{
   flex: 1;
-  padding:5px 0;
+  padding:10px 0;
   text-align: center;
+  border-right: #eee solid 1px;
   color: #757575;
   float: left;
+}
+.html-client-view .client-list li.accordion-item{
+  padding: 0
 }
 .html-client-view .client-list .item-title{
   font-size: 13px;
@@ -585,7 +589,41 @@ canvas {
   height: 48px;
   line-height: 48px;
 }
+.list-block .client-title .item-title{
+  font-size: 13px;
+  font-weight: bold;
+}
+.html-client-view .client-title li{
+  margin: 5px 0;
+  padding: 0;
+}
+.html-client-view .list-block .item-content{
+  padding-left: 0;
+  min-height: auto
+}
+.html-client-view .other-item{
+  display: -webkit-flex;
+  padding:5px 15px;
+  font-size: 12px;
+}
+.html-client-view .other-item-title{
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+}
+.html-client-view .other-item-content{
+  flex: 4;
+  text-align: right;
 
+}
+.html-query-result  .accordion-item-content p{
+  font-size: 12px;
+  text-align: left;
+  padding: 0 15px;
+}
+.html-client-view .client-list ul.accordion-ul{
+  border-width: 0;
+}
 /********** 客户详情页 - 概况 ****************/
 .js-info-view .page-content,.js-user-view .page-content{
   background:#f1f1f1;

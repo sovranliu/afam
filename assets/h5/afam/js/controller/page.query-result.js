@@ -22,6 +22,10 @@ $Controller.methods = function() {
 			        }
 			    ]
 			});
+			//$$('.btn-search').on('click',this.loadUrl);
+		},
+		loadUrl:function(){
+			$Controller.views.main.router.loadPage('xgsg-result.html');
 		}
 	};
 }();
