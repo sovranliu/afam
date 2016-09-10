@@ -18,7 +18,7 @@ canvas {
 .pages{
   margin-bottom: 50px;
 }
-.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.client-list ul,.user-data-wrap,.user-data li,.js-position-view .content-block{
+.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.client-list ul,.user-data-wrap,.user-data li,.js-position-view .content-block,.html-query-result .accordion-item-content .content-block,.html-client-view .other-item span{
     border-style: solid;
     border-color: #ddd;
     border-image: url(ddata:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
@@ -76,10 +76,14 @@ canvas {
 }
 .badge{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
+  line-height: 20px;
   border-radius: 100%;
   text-align: center;
+  padding:0;
+  font-size: 10px;
+  margin-left: 5px;
 }
 .orange{
   color: #ff885a;
@@ -98,6 +102,9 @@ canvas {
 }
 .yellow{
   color: #f9c051;
+}
+.bg-red{
+  background-color: #ff6668;
 }
 .fl{
   float: left;
@@ -564,6 +571,7 @@ canvas {
   border-width: 0px;
 }
 .html-client-view .client-title ul{
+  background: #f1f1f1;
   display: -webkit-flex;
 }
 .html-client-view .client-list ul{
@@ -579,11 +587,18 @@ canvas {
   color: #757575;
   float: left;
 }
+.html-client-view .client-list li:last-child{
+  border-right:0;
+}
 .html-client-view .client-list li.accordion-item{
   padding: 0
 }
 .html-client-view .client-list .item-title{
   font-size: 13px;
+}
+.html-client-view .client-name{
+  text-align: left;
+  padding-left: 15px;
 }
 .html-client-view .button{
   height: 48px;
@@ -603,8 +618,14 @@ canvas {
 }
 .html-client-view .other-item{
   display: -webkit-flex;
-  padding:5px 15px;
   font-size: 12px;
+}
+.html-client-view .other-item span{
+  border-width: 1px 1px 0;
+  padding:5px 15px;
+}
+.html-client-view .other-item span:last-child{
+  border-width: 1px 0 0;
 }
 .html-client-view .other-item-title{
   flex: 1;
@@ -612,18 +633,29 @@ canvas {
   font-weight: bold;
 }
 .html-client-view .other-item-content{
-  flex: 4;
-  text-align: right;
+  flex: 3;
+  text-align: left;
 
+}
+.html-query-result .accordion-item-content{
+  background-color: #f1f1f1
 }
 .html-query-result  .accordion-item-content p{
   font-size: 12px;
   text-align: left;
   padding: 0 15px;
 }
+.html-query-result .client-list ul{
+  border-width: 0 0 1px 0;
+}
+.html-query-result .accordion-item-content .content-block{
+  border-width: 0 0 1px 0;
+}
+
 .html-client-view .client-list ul.accordion-ul{
   border-width: 0;
 }
+
 /********** 客户详情页 - 概况 ****************/
 .js-info-view .page-content,.js-user-view .page-content{
   background:#f1f1f1;
