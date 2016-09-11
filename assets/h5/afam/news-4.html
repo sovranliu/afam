@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AFA - 新闻</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+  
+    <!-- Views-->
+    <div class="views js-news-view">
+      <div class="view view-main">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a id="btn_close" href="#" class="link icon-only" onclick="bridge('window').call('close');">
+                <i class="icon icon-back"></i>
+              </a>
+            </div>
+            <!-- We have home navbar without left link-->
+            <div class="center">新闻</div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="clientDetailInfo" class="page navbar-fixed">
+                <div class="page-content">
+                  <div class="content-page-wrap">
+                    <div class="content_page" style="max-height: none;">
+                      <div class="content-data-wrap">
+                        <div class="content-imgs-wrap">
+                          <h1 class="cont_title">释放先进产能抑制煤价上涨并非暂停去产能 </h1>
+                          <div class="cont_auto">来源：证券时报</div>
+                          <div class="cont_releasetime">发布时间：2016-09-09</div>
+                          <div class="cont_info">
+                            <div class="section_one">
+                              <p class="p_set">近期,我国的煤炭价格出现快速上涨,甚至有煤炭贸易商抱怨,上午一个价,下午一个价。针对煤价的过快上涨,发改委启动了抑制煤价的预案,适当释放部分先进产能,但是调整后的年度产量仍不能突破276个工作日核定产能。
+
+ 对于煤炭价格的飙升,不少业内人士将原因归结于去产能。按照供给侧结构性改革的要求,煤炭行业去产能的攻坚战已经取得了一定成效。煤企从今年4月开始将330个工作日的核定产能调整为276个工作日。截至8月底,今年煤炭行业去产能的任务完成了60%,前8个月煤炭产量同比下降近10%。煤炭产量受限制,直接带来了库存的明显下降。由此,业内有猜测认为,预案的启动意味着煤炭行业去产能的步伐放慢,但这种猜测显然是有偏差的。
+
+ 煤炭价格的上涨并不能简单归结于去产能,还有来自国际的外力因素。进入7月份以来,国际动力煤价格整体上涨,受国际煤价上涨联动影响,我国煤价也出现上扬。而煤炭行业去产能并不是简单控制产量,还涉及去除低效产能,如关闭低效率、高污染的矿井,促使低效产能退出,这无疑对生态环境是重大利好。
+
+ 当前煤炭行业并没有形成集体性的自律,煤炭企业一旦看到价格上涨,有利可图,就会扎堆加大产量,这是一种饮鸩止渴的行为。数据显示,今年合法产能为55亿吨,有效需求大约为36~37亿吨,产能压缩空间较大,煤炭仍然处于供大于求的状态,也说明了煤炭价格的上涨并非基于煤炭供需关系的改变。
+
+ 因为暂时的价格上涨,就要停下去产能的步伐,这显然是违背政策初衷的。这不仅会使早期的去产能成果付诸东流,更不利于中国能源结构调整和经济的稳步转型。事实上,预案实施是在去产能的大背景下推动的,这只是应对煤价上涨的短期措施,去产能的大方向、决心没有动摇。随着去产能的继续推进,未来一段时间内,煤炭产量与库存将会呈现回落态势,煤价也将维持在合理价位。
+
+ 其实抑制煤炭价格上涨,还可以通过能源结构调整来实现。国家可以加速推进天然气市场化改革,抓住国际天然气价格低位利好,放宽天然气进口,扩大天然气对煤炭的替代作用。相信在不久的将来,随着煤炭行业去产能任务的完成以及能源结构的不断调整,煤炭行业的供需关系终将得以平衡。
+</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/tools/bridge.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
+  </body>
+</html>
+
