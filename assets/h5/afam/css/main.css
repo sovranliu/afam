@@ -596,6 +596,9 @@ canvas {
 .html-client-view .client-list .item-title{
   font-size: 13px;
 }
+.html-client-view .client-list .item-title.time{
+  font-size: 10px;
+}
 .html-client-view .client-name{
   text-align: left;
   padding-left: 15px;
