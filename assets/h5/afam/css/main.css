@@ -18,7 +18,7 @@ canvas {
 .pages{
   margin-bottom: 50px;
 }
-.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.client-list ul,.user-data-wrap,.user-data li,.js-position-view .content-block,.html-query-result .accordion-item-content .content-block,.html-client-view .other-item span{
+.client-list-wrap,.client-list,.split-line,.client-chart-wrap,.client-other-wrap,.client-list ul,.user-data-wrap,.user-data li,.js-position-view .content-block,.html-query-result .accordion-item-content .content-block,.html-client-view .other-item span,.query-title{
     border-style: solid;
     border-color: #ddd;
     border-image: url(ddata:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
@@ -1078,6 +1078,7 @@ canvas {
 .query-title{
   padding:5px 10px 0;
   background: #fff;
+  border-width: 0 0 1px 0;
 }
 .js-query-view .fast-wrap{
   padding: 0 8px;
