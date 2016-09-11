@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AFA - 即将到来</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+  
+    <!-- Views-->
+    <div class="views js-empty-view">
+      <div class="view view-main">
+      <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a id="btn_close" href="#" class="link icon-only" onclick="bridge('window').call('close');">
+                <i class="icon icon-back"></i>
+              </a>
+            </div>
+            <!-- We have home navbar without left link-->
+            <div class="center">敬请期待</div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="clientDetailInfo" class="page navbar-fixed">
+                <div class="page-content">
+                  <img src="image/afa_logo.png" alt="">  
+                  <p class="center">功能建设中，即将到来</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/tools/bridge.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
+  </body>
+</html>
