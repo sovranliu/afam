@@ -5,44 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>AFA -  产品精选</title>
+    <title>AFA - 产品精选</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/main.css">
-	<script id="template_tz" type="text/template7">
+	<script id="template_tzlc" type="text/template7">
 	{{#each this}}
 <ul class="clearfix">
 	<li>
 	  <div class="item-title red">{{name}}</div>
-	  <div class="item-title time">{{time}}</div>
 	</li>
 	<li>
-	  <div class="item-title">{{bid}}</div>
-	  <div class="item-title"></div>
+	  <div class="item-title">{{code}}</div>
 	</li>
 	<li>
-	  <div class="item-title">{{price}}</div>
-	  <div class="item-title"></div>
+	  <div class="item-title">{{amount}}</div>
 	</li>
 	<li>
-	  <div class="item-title">买入</div>
-	  <div class="item-title">{{status}}</div>
+	  <div class="item-title">{{rate}}</div>
 	</li>
 </ul>
 	{{/each}}
 	</script>
-    <script id="template_zx" type="text/template7">
+    <script id="template_zxyb" type="text/template7">
   {{#each this}}
 <ul class="clearfix">
   <li>
-    <div class="item-title red">{{name}}</div>
-    <div class="item-title time">{{time}}</div>
+    <div class="item-title red">{{title}}</div>
   </li>
   <li>
-    <div class="item-title">{{bid}}</div>
-    <div class="item-title"></div>
+    <div class="item-title">{{date}}</div>
   </li>
 </ul>
   {{/each}}
@@ -68,9 +62,9 @@
               <!-- 导航栏中的按键排控制器 -->
               <div class="buttons-row">
                 <!-- 关联到第一个tab的链接，默认激活 -->
-                <a href="#tab1" class="tab-link active button">投资产品</a>
+                <a href="#tab1" class="tab-link active button">投资理财</a>
                 <!-- 关联到第二个tab的链接 -->
-                <a href="#tab2" class="tab-link button">资讯产品</a>
+                <a href="#tab2" class="tab-link button">资讯研报</a>
                 <i class="cui-tab-scrollbar cui-tabnum2"></i>
               </div>
             </div>
@@ -101,7 +95,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="application_list" class="list-group client-list">
+                        <div id="tzlc_list" class="list-group client-list">
                           
                         </div>
                     </div>
@@ -126,7 +120,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="deal_list" class="list-group client-list">
+                        <div id="zxyb_list" class="list-group client-list">
                           
                         </div>
                     </div>
@@ -147,6 +141,6 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="lib/tools/bridge.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
-    <script type="text/javascript" src="js/controller/page.cpjx.js"></script>
+    <script type="text/javascript" src="js/controller/page.products.js"></script>
   </body>
 </html>
