@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>AFA - 新股申购</title>
+    <title>AFA - 搜寻金钱豹</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
@@ -34,7 +34,7 @@
                   </a>
                 </div>
                 <!-- We have home navbar without left link-->
-                <div class="center">新股申购</div>
+                <div class="center">搜寻金钱豹</div>
               </div>
             </div>
             <!-- Pages -->
@@ -47,9 +47,9 @@
                             <li>
                               <div class="item-content">
                                 <div class="item-inner">
-                                  <div class="item-title label">设备</div>
+                                  <div class="item-title label">权限范围</div>
                                   <div class="item-input">
-                                    <input type="text" placeholder="Your iOS device"  id="picker-device">
+                                    <input type="text" placeholder="搜索权限" id="scope">
                                   </div>
                                 </div>
                               </div>
@@ -57,9 +57,9 @@
                             <li>
                               <div class="item-content">
                                 <div class="item-inner">
-                                  <div class="item-title label">选择日期</div>
+                                  <div class="item-title label">客户姓名</div>
                                   <div class="item-input">
-                                    <input type="text" placeholder="Your birth date" readonly id="calendar-default">
+                                    <input type="text" placeholder="姓名">
                                   </div>
                                 </div>
                               </div>
@@ -67,9 +67,9 @@
                             <li>
                               <div class="item-content">
                                 <div class="item-inner">
-                                  <div class="item-title label">输入名字</div>
+                                  <div class="item-title label">资金账号</div>
                                   <div class="item-input">
-                                    <input type="text" placeholder="Your name">
+                                    <input type="text" placeholder="账号">
                                   </div>
                                 </div>
                               </div>
@@ -77,7 +77,7 @@
                             <li>
                               <div class="item-content">
                                 <div class="item-inner">
-                                  <div class="item-title label">Switch</div>
+                                  <div class="item-title label">深度服务</div>
                                   <div class="item-input">
                                     <label class="label-switch">
                                       <input type="checkbox">
@@ -90,7 +90,7 @@
                           </ul>
                         </div> 
                         
-                        <div class="content-block-title">多选</div>
+                        <div class="content-block-title">营业部</div>
                         <div class="list-block">
                           <ul>
                             <!-- Single chekbox item -->
@@ -102,7 +102,7 @@
                                   <i class="icon icon-form-checkbox"></i>
                                 </div>
                                 <div class="item-inner">
-                                  <div class="item-title">Books</div>
+                                  <div class="item-title">当前营业部</div>
                                 </div>
                               </label>
                             </li>
@@ -114,43 +114,13 @@
                                   <i class="icon icon-form-checkbox"></i>
                                 </div>
                                 <div class="item-inner">
-                                  <div class="item-title">Movies</div>
+                                  <div class="item-title">其他营业部</div>
                                 </div>
                               </label>
                             </li>
                           </ul>
                         </div>
-                        <div class="content-block-title">单选</div>
-                        <div class="list-block">
-                          <ul>
-                            <!-- Single radio input -->
-                            <li>
-                              <label class="label-radio item-content">
-                                <!-- Checked by default -->
-                                <input type="radio" name="my-radio" value="Books" checked="checked">
-                                <div class="item-media">
-                                  <i class="icon icon-form-radio"></i>
-                                </div>
-                                <div class="item-inner">
-                                  <div class="item-title">Books</div>
-                                </div>
-                              </label>
-                            </li>
-                            <!-- Another radio input -->
-                            <li>
-                              <label class="label-radio item-content">
-                                <input type="radio" name="my-radio" value="Movies">
-                                <div class="item-media">
-                                  <i class="icon icon-form-radio"></i>
-                                </div>
-                                <div class="item-inner">
-                                  <div class="item-title">Movies</div>
-                                </div>
-                              </label>
-                            </li>
-                          </ul>
-                        </div>   
-                        <p><a href="xgsg-result.html" class="button btn-search external">搜索</a></p> 
+                        <p><a href="query-sxjqb-result.html" class="button btn-search external">搜索</a></p> 
                     </div>
                 </div>
             </div>           
@@ -164,6 +134,6 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="lib/tools/bridge.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
-    <script type="text/javascript" src="js/controller/page.query-result.js"></script>
+    <script type="text/javascript" src="js/controller/page.query-sxjqb-filter.js"></script>
   </body>
 </html>
