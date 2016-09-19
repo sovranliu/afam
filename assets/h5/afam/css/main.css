@@ -301,24 +301,31 @@ canvas {
 }
 .fast-wrap .fast-link .fast-box{
     display: block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px;
-    margin: 0 auto 5px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 100%;
+    margin: 0 auto 3px;
     color: #fff;
+    border: #44a0ea solid 2px;
 }
+.fast-wrap .fast-link .fast-box img{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+/*
 .fast-wrap .fast-link .fast-box.f1{
-    background: #ff6668;
+    background-image: linear-gradient(to bottom, #fd8486 0%,#ff6668 100%);
 }
 .fast-wrap .fast-link .fast-box.f2{
-    background: #ff885a;
+    background-image: linear-gradient(to bottom, #fe9e79 0%,#ff885a 100%);
 }
 .fast-wrap .fast-link .fast-box.f3{
-    background: #38d0d4;
+    background-image: linear-gradient(to bottom, #3ce1e5 0%,#38d0d4 100%);
 }
 .fast-wrap .fast-link .fast-box.f4{
-    background: #01c195;
+    background-image: linear-gradient(to bottom, #02d8a7 0%,#01c195 100%);
 }
 .fast-wrap .fast-link .fast-box.f5{
     background: #f9c051;
@@ -332,6 +339,7 @@ canvas {
 .fast-wrap .fast-link .fast-box.f8{
     background: #629cf6;
 }
+*/
 /*news*/
 .news-wrap{
   background: #fff;
