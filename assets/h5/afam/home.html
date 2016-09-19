@@ -68,6 +68,26 @@
 	{{/each}}
 	</script>
 	
+	<script id="template_top_product" type="text/template7">
+<li>
+	<span class="rank-cilent">客户</span>
+	<span class="rank-detail">理财产品</span>
+	<span class="rank-amount">购买金额</span>
+</li>
+	{{#each this}}
+<li>
+	<span class="rank-cilent">
+		<em>{{name}}</em>
+		<em>{{id}}</em>
+	</span>
+	<span class="rank-detail">
+		<em>{{product}}</em>
+	</span>
+	<span class="rank-amount orange">{{amount}}</span>
+</li>
+	{{/each}}
+	</script>
+	
 	<script id="template_news" type="text/template7">
 	{{#each this}}
 <li>
@@ -173,6 +193,7 @@
                     <!-- 关联到第二个tab -->
                     <a href="#tab2" class="tab-link button">当日银证转账</a>
                     <!-- 关联到第三个tab -->
+                    <a href="#tab3" class="tab-link button">当日产品委托</a>
                   </div>
                 </div>
                 <!-- Tabs, 标签内容区容器 -->
@@ -232,6 +253,37 @@
                                 <span class="rank-cilent">客户</span>
                                 <span class="rank-amount">净流入</span>
                                 <span class="rank-detail">详情</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Pagination, if required -->
+                        <div class="swiper-pagination yz-pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Tab 3 -->
+                  <div id="tab3" class="tab">
+                    <div class="content-block">
+                      <div class="swiper-container yz-wrap">
+                       <!-- Slides wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                          <div class="swiper-slide">
+                            <ul id="top_product_1" class="rank-list rank-title clearfix">
+                              <li>
+                                <span class="rank-cilent">客户</span>
+                                <span class="rank-amount">理财产品</span>
+                                <span class="rank-detail">购买金额</span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="swiper-slide">
+                            <ul id="top_product_2" class="rank-list rank-title clearfix">
+                              <li>
+                                <span class="rank-cilent">客户</span>
+                                <span class="rank-amount">理财产品</span>
+                                <span class="rank-detail">购买金额</span>
                               </li>
                             </ul>
                           </div>

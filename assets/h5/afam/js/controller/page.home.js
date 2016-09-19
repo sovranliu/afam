@@ -19,6 +19,7 @@ $Controller.methods = function() {
 			this.loadBanner();
 			this.loadTopTransaction();
 			this.loadTopTransfer();
+			this.loadTopProduct();
 			this.loadNews();
 		},
 		initNav:function() {
@@ -80,6 +81,19 @@ $Controller.methods = function() {
 				$$('#top_transfer_1').html(html);
 				html = Template7.templates.template_top_transfer(resp.data.slice(3, 6));
 				$$('#top_transfer_2').html(html);
+			});
+		},
+		loadTopProduct:function() {
+			$$.getJSON(S_DOMAIN + '/afam/rest/productTop', {}, function(resp) {
+				if(resp.code < 0) {
+					bridge('window').call('tip', resp.msg || '产品委托服务错误');
+					return;
+				}
+				var html = null;
+				html = Template7.templates.template_top_product(resp.data.slice(0, 3));
+				$$('#top_product_1').html(html);
+				html = Template7.templates.template_top_product(resp.data.slice(3, 6));
+				$$('#top_product_2').html(html);
 			});
 		},
 		initNews:function() {
