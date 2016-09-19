@@ -284,7 +284,7 @@ canvas {
 /*fast-link*/
 .fast-wrap{
   position: relative;
-  padding: 10px;
+  padding: 10px 10px 5px;
   background: #fff;
 }
 .fast-wrap .fast-link{
@@ -297,7 +297,6 @@ canvas {
   text-align: center;
   color: #333;
   font-size: 12px;
-  margin-top: 10px;
 }
 .fast-wrap .fast-link .fast-box{
     display: block;
@@ -307,26 +306,27 @@ canvas {
     border-radius: 100%;
     margin: 0 auto 3px;
     color: #fff;
-    border: #44a0ea solid 2px;
+    box-shadow: 1px 1px 5px #ccc;
 }
 .fast-wrap .fast-link .fast-box img{
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     vertical-align: middle;
 }
-/*
+
 .fast-wrap .fast-link .fast-box.f1{
-    background-image: linear-gradient(to bottom, #fd8486 0%,#ff6668 100%);
+    border: #44a0ea solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f2{
-    background-image: linear-gradient(to bottom, #fe9e79 0%,#ff885a 100%);
+    border:#ea9d53 solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f3{
-    background-image: linear-gradient(to bottom, #3ce1e5 0%,#38d0d4 100%);
+    border:#53b6ea solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f4{
-    background-image: linear-gradient(to bottom, #02d8a7 0%,#01c195 100%);
+    border:#53b6ea solid 2px;
 }
+/*
 .fast-wrap .fast-link .fast-box.f5{
     background: #f9c051;
 }
