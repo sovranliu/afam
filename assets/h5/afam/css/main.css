@@ -315,16 +315,16 @@ canvas {
 }
 
 .fast-wrap .fast-link .fast-box.f1{
-    border: #44a0ea solid 2px;
+    border: #44a0ea solid 1px;
 }
 .fast-wrap .fast-link .fast-box.f2{
-    border:#ea9d53 solid 2px;
+    border:#ea9d53 solid 1px;
 }
 .fast-wrap .fast-link .fast-box.f3{
-    border:#53b6ea solid 2px;
+    border:#82a0e4 solid 1px;
 }
 .fast-wrap .fast-link .fast-box.f4{
-    border:#53b6ea solid 2px;
+    border:#edd795 solid 1px;
 }
 /*
 .fast-wrap .fast-link .fast-box.f5{
