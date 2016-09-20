@@ -318,16 +318,16 @@ div.fast-link{
 }
 
 .fast-wrap .fast-link .fast-box.f1{
-    border: #44a0ea solid 1px;
+    border: rgba(68, 161, 235, 0.3) solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f2{
-    border:#ea9d53 solid 1px;
+    border: rgba(235, 157, 82, 0.3) solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f3{
-    border:#82a0e4 solid 1px;
+    border: rgba(82, 235, 89, 0.3) solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f4{
-    border:#edd795 solid 1px;
+    border: rgba(235, 104, 82, 0.3) solid 2px;
 }
 /*
 .fast-wrap .fast-link .fast-box.f5{
