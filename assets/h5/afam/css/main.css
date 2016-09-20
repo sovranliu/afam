@@ -307,7 +307,7 @@ div.fast-link{
     height: 50px;
     line-height: 50px;
     border-radius: 100%;
-    margin: 1px auto 3px;
+    margin: 3px auto 3px;
     color: #fff;
     box-shadow: 1px 1px 5px #ccc;
 }
@@ -318,15 +318,19 @@ div.fast-link{
 }
 
 .fast-wrap .fast-link .fast-box.f1{
+    margin: 1px auto 3px;
     border: rgba(68, 161, 235, 0.3) solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f2{
+    margin: 1px auto 3px;
     border: rgba(235, 157, 82, 0.3) solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f3{
+    margin: 1px auto 3px;
     border: rgba(82, 235, 89, 0.3) solid 2px;
 }
 .fast-wrap .fast-link .fast-box.f4{
+    margin: 1px auto 3px;
     border: rgba(235, 104, 82, 0.3) solid 2px;
 }
 /*
