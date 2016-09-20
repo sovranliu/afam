@@ -629,6 +629,9 @@ div.fast-link{
   font-size: 13px;
   font-weight: bold;
 }
+.list-block .client-title .item-text{
+  font-size: 13px;
+}
 .html-client-view .client-title li{
   margin: 5px 0;
   padding: 0;

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AFA - 基金委托</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/main.css">
+    <script id="template_newstock" type="text/template7">
+        {{#each this}}
+        <ul class="clearfix" data-im="{{im}}">
+            <li class="accordion-item">
+                <div class="item-title">
+                    <a href="#">{{cname}}</a>
+                </div>
+            </li>
+            <li>
+                <div class="item-title balck">{{scode}}<br>（{{sname}}）</div>
+            </li>
+            <li class="accordion-item"><a href="#" class="item-content item-link">
+                <div class="item-inner" style="padding-left:50px;">
+                    <div class="item-text red" >{{snum}}</div>
+                </div></a>
+                <div class="accordion-item-content">
+                    <div class="content-block">
+                        <p>中签金额{{smoney}}</p><p style="color: red">{{sdesc}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        {{/each}}
+    </script>
+</head>
+<body>
+<!-- Status bar overlay for fullscreen mode-->
+<div class="statusbar-overlay"></div>
+<!-- Panels overlay-->
+<div class="panel-overlay"></div>
+
+<!-- Views-->
+<div class="views js-client-view html-client-view">
+    <div class="view view-main">
+
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="client" class="page">
+                <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                    <div class="searchbar-input">
+                        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                    </div><a href="#" class="searchbar-cancel">Cancel</a>
+                </form>
+                <div class="searchbar-overlay"></div>
+                <div class="page-content infinite-scroll" data-distance="100">
+                    <div class="list-block contacts-block">
+                        <div class="list-group client-title">
+                            <ul class="clearfix">
+                                <li >
+                                    <div class="item-title">客户姓名 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">基金名称 </div>
+                                </li>
+                                <li>
+                                    <div class="item-title">购买份数</div>
+                                </li>
+                            </ul>
+                            <ul class="clearfix" data-im="{{im}}">
+                                <li class="accordion-item">
+                                    <div class="item-text">
+                                        <a href="#">李建</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-text balck">601699<br>（潞安环能）</div>
+                                </li>
+                                <li class="accordion-item"><a href="#" class="item-content item-link">
+                                    <div class="item-inner" style="padding-left:50px;">
+                                        <div class="item-text red" >500</div>
+                                    </div></a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>成交金额2700.00</p><p style="color: red">需补1300.00<br>（9月31前）</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="clearfix" data-im="{{im}}">
+                                <li>
+                                    <div class="item-text">
+                                        <a href="#">赵晓雪</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-text balck">002344<br>（海宁皮城）</div>
+                                </li>
+                                <li class="accordion-item"><a href="#" class="item-content item-link">
+                                    <div class="item-inner" style="padding-left:50px;">
+                                        <div class="item-text red" >1000</div>
+                                    </div></a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>成交金额8000.00</p><p style="color: red">需补400.00<br>（10月7日前）</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="clearfix" data-im="{{im}}">
+                                <li style="width:20%">
+                                    <div class="item-text">
+                                        <a href="#">刘欢</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-text balck">600343<br>（航天动力）</div>
+                                </li>
+                                <li class="accordion-item"><a href="#" class="item-content item-link">
+                                    <div class="item-inner" style="padding-left:50px;">
+                                        <div class="item-text orange" >300</div>
+                                    </div></a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>成交金额4500.00<br>账号已足款</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-group client-list">
+                        </div>
+                    </div>
+
+                    <div class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="lib/tools/bridge.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+
+</body>
+</html>
