@@ -304,7 +304,7 @@ canvas {
     height: 50px;
     line-height: 50px;
     border-radius: 100%;
-    margin: 0 auto 3px;
+    margin: 3px auto 3px;
     color: #fff;
     box-shadow: 1px 1px 5px #ccc;
 }
