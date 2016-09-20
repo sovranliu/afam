@@ -45,15 +45,22 @@
 <!-- Views-->
 <div class="views js-client-view html-client-view">
     <div class="view view-main">
-
-        <div class="pages navbar-through toolbar-through">
+		<!-- Navbar-->
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<div class="left">
+			  <a id="btn_close" href="#" class="link icon-only">
+				<i class="icon icon-back"></i>
+			  </a>
+			</div>
+			<!-- We have home navbar without left link-->
+			<div class="center">开放式基金委托</div>
+			<div class="right">
+			</div>
+		  </div>
+		</div>
+		<div class="pages navbar-fixed">
             <div data-page="client" class="page">
-                <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
-                    <div class="searchbar-input">
-                        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
-                    </div><a href="#" class="searchbar-cancel">Cancel</a>
-                </form>
-                <div class="searchbar-overlay"></div>
                 <div class="page-content infinite-scroll" data-distance="100">
                     <div class="list-block contacts-block">
                         <div class="list-group client-title">
@@ -145,7 +152,8 @@
 <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
 <!-- Path to your app js-->
 <script type="text/javascript" src="lib/tools/bridge.js"></script>
-<script type="text/javascript" src="js/page.js"></script>
 
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/controller/page.query-funddelegate-result.js"></script>
 </body>
 </html>
