@@ -291,6 +291,9 @@ canvas {
   width: 100%;
   height: auto;
 }
+div.fast-link{
+    margin-top: 3px;
+}
 .fast-wrap .fast-link a{
   width: 24%;
   display: inline-block;
@@ -304,7 +307,7 @@ canvas {
     height: 50px;
     line-height: 50px;
     border-radius: 100%;
-    margin: 3px auto 3px;
+    margin: 1px auto 3px;
     color: #fff;
     box-shadow: 1px 1px 5px #ccc;
 }
